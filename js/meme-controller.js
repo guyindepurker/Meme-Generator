@@ -1,6 +1,9 @@
 'use strict';
 var gCanvas;
 var gCtx;
+var gCurrMeme = gMeme.lines[0];
+
+
 function init(){
     gCanvas = document.querySelector('#meme-canvas');
     gCtx = gCanvas.getContext('2d');
@@ -11,7 +14,7 @@ function hendleEvent(ev){
 }
 function renderMeme(){
     var meme = getMeme();
-    var img = findImgById(meme.selectedImgId);
+    var img = findImgById(gMeme.selectedImgId);
     var cuurLine = meme.lines[meme.selectedLineIdx]
     drawImg(img.url,cuurLine.txt,cuurLine.x,cuurLine.y)
 }
@@ -24,13 +27,9 @@ function changeText(value){
     renderMeme()
 }
 function onUpdateMeme(id){
-    var elMemeCanvas = document.querySelector('.canvas-container');
-    var elGallry = document.querySelector('.main-container');
-    console.log(id);
     updateMeme(id)
     renderMeme()
-    elGallry.style.display = 'none';
-    elMemeCanvas.style.display = 'block';
+    toggleDisplay('main-container','canvas-container')
 }
 
 function drawImg(src,txt,x,y){
@@ -52,4 +51,5 @@ function drawText(text,x,y){
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
 }
+
 

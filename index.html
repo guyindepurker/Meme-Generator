@@ -10,21 +10,27 @@
 
 <body onload="init()">
     <h1>Meme Generator</h1>
-    <section class="main-container">
-        <div class="gallery">
-            <img src="/imgs/meme-imgs/1.jpg" class="img" onclick="onUpdateMeme(1)">
-            <img src="/imgs/meme-imgs/3.jpg" class="img" onclick="onUpdateMeme(2)">
-
-        </div>
-    </section>
     <section class="canvas-container">
         <canvas id="meme-canvas" height="500" width="500" onclick="hendleEvent(event)"></canvas>
-        <div class="controls">
+        <div class="box-control">
             <label for="enter-text">Enter Text:</label>
             <input type="text" id="enter-text" name="text" placeholder="enter text" onkeyup="changeText(this.value)"
                 onkeypress="changeText(this.value)">
+                <section class="controllers">
+                    <img src="./design/icons/increase-font-icon.png" class="btn increase-font">
+                    <img src="./design/icons/decrease-font-icon.png" class="btn decrease-font">
+
+                </section>
         </div>
     </section>
+
+    <section class="main-container">
+        <div class="gallery">
+            <img src="./imgs/meme-imgs/1.jpg" class="img" onclick="onUpdateMeme(1)">
+            <img src="./imgs/meme-imgs/2.jpg" class="img" onclick="onUpdateMeme(2)">
+        </div>
+    </section>
+    
 
     <script src="js/utils.js"></script>
     <script src="js/meme-service.js"></script>

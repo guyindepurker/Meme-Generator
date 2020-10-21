@@ -6,7 +6,15 @@ body{
     margin: 0;
     text-align: center;
 }
-
+.btn {
+    background-color: #fff;
+    border-radius: 5px;
+    height: 50px;
+    cursor: pointer;
+}
+.box-control,.controllers{
+    margin: 15px;
+}
 .canvas-container{
     margin:0 auto;
     display: none;
