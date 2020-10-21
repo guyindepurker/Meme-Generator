@@ -53,11 +53,7 @@ function updateMeme(id){
     gMeme.selectedImgId = id;
 }
 // Later change all of this to one function
-function increaseFont(num){
-    if(gMeme.lines[gMeme.selectedLineIdx].size === 70) return;
-    gMeme.lines[gMeme.selectedLineIdx].size += num
-   
-}
+
 function changeFontSize(action,num){
     if(action === 'decrease'){
         if(gMeme.lines[gMeme.selectedLineIdx].size <= 20) return;
@@ -68,11 +64,13 @@ function changeFontSize(action,num){
     }
 }
 
-function decreaseFont(num){
-    if(gMeme.lines[gMeme.selectedLineIdx].size <= 20) return;
-    gMeme.lines[gMeme.selectedLineIdx].size -= num;
+function moveLine(action,num){
+   if(action === 'up'){
+    gMeme.lines[gMeme.selectedLineIdx].y += num;
+   }else if(action === 'down'){
+    gMeme.lines[gMeme.selectedLineIdx].y -= num;
+   }
 }
-
 function upLine(num){
     gMeme.lines[gMeme.selectedLineIdx].y += num;
    

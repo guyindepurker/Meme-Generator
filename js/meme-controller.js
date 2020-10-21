@@ -39,18 +39,15 @@ function onDownLine(num) {
   downLine(num);
   renderMeme();
 }
-function onChangeFontSize(action,num){
+function onMoveLine(action,num=5){
+    moveLine(action,num)
+    renderMeme();
+}
+function onChangeFontSize(action,num=5){
     changeFontSize(action,num)
     renderMeme();
 }
-function onIncreaseFont(num) {
-    increaseFont(num);
-    renderMeme();
-  }
-  function onDecreaseFont(num) {
-    decreaseFont(num);
-    renderMeme();
-  }
+
 //   *********** change all of the top to one func //
 function onUpdateMeme(id) {
   updateMeme(id);
