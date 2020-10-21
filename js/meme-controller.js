@@ -63,7 +63,7 @@ function drawImg(src) {
 
 function renderTexts(texts){
     texts.forEach(line => {
-        drawText(line.txt,line.color,line.size,line.align, line.x, line.y,line.font)
+        drawText(line.txt,line.color,line.size,line.align, line.x, line.y,line.font);
     });
 }
 

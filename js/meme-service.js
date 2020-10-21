@@ -62,7 +62,6 @@ function increaseFont(num){
 function decreaseFont(num){
     if(gMeme.lines[gMeme.selectedLineIdx].size <= 20) return;
     gMeme.lines[gMeme.selectedLineIdx].size -= num;
-   
 }
 
 function upLine(num){
