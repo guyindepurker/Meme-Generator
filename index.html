@@ -21,6 +21,22 @@
                     <img src="design/icons/up-and-down-opposite-double-arrows-side-by-side.png" class="btn up-line" onclick="onMoveLine('up',5)">
                     <img src="design/icons/up-and-down-opposite-double-arrows-side-by-side.png" class="btn up-down" onclick="onMoveLine('down',5)">
                     <img src="design/icons/up-and-down-opposite-double-arrows-side-by-side.png" class="btn change-line-btn" onclick="onSwitchLine()">
+                    <div class="controls-text">
+                        <div class="align-text">
+                            <img src="/design/icons/align-to-right.png" class="btn" onclick="onAlignTxt('right')">
+                            <img src="/design/icons/center-text-alignment.png" class="btn" onclick="onAlignTxt('center')">
+                            <img src="/design/icons/align-to-left.png" class="btn" onclick="onAlignTxt('left')">
+                        </div>
+                            <div class="controls-fonts">
+                                <img src="/design/icons/paint-board-and-brush.png" class="btn"> <input type="color" id="fill-color" name="fill-text"
+                                value="#ffffff" onchange="onChangeColor('fill',this.value)">
+                                <img src="/design/icons/text-stroke.png" class="btn">
+                                <input type="color" id="stroke-color" name="stroke-text"
+                                    value="#000000" onchange="onChangeColor('stroke',this.value)">
+                            </div>
+
+
+                    </div>
 
                 </section>
         </div>

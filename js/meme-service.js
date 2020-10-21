@@ -15,6 +15,7 @@ var gMeme = {
       size: 30,
       align: "center",
       color: "white",
+      stroke:'black',
       font: "IMPACT",
       x: 258,
       y: 50,
@@ -24,6 +25,7 @@ var gMeme = {
       size: 30,
       align: "center",
       color: "white",
+      stroke:'black',
       font: "IMPACT",
       x: 258,
       y: 493,
@@ -69,14 +71,26 @@ function moveLine(action, num) {
     gMeme.lines[gMeme.selectedLineIdx].y -= num;
   }
 }
+// CONTROL LINES SETTING:
+function alignTxt(newAlign){
+    gMeme.lines[gMeme.selectedLineIdx].align = newAlign;
+}
+function changeColor(type,value){
+    if(type === 'fill'){
+        gMeme.lines[gMeme.selectedLineIdx].color = value;
+    } else if(type === 'stroke'){
+        gMeme.lines[gMeme.selectedLineIdx].stroke = value;
+    }
+}
 
-function getInputTxt() {
+
+
+function getCurrTxt() {
   return gMeme.lines[gMeme.selectedLineIdx].txt;
 }
-// function getCuurLine(){
-//     var x = gMeme.lines[gMeme.selectedLineIdx].x
-//     var y = gMeme.lines[gMeme.selectedLineIdx].y
-//     var size = gMeme.lines[gMeme.selectedLineIdx].size
-//     var focus = {x,y,size}
-//     return focus;
-// }
+function getCoordsLine(){
+    var x = gMeme.lines[gMeme.selectedLineIdx].x
+    var y = gMeme.lines[gMeme.selectedLineIdx].y
+    var cuurLineCoords = {x,y}
+    return cuurLineCoords;
+}
