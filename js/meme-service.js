@@ -14,7 +14,16 @@ var gMeme = {
         font:'IMPACT',
         x:234,
         y:50
-    }
+    },
+    {
+        txt:'I never eat food',
+        size:30,
+        align:'center',
+        color:'white',
+        font:'IMPACT',
+        x:258,
+        y:493
+    },
 ]
  
 }

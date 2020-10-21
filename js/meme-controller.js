@@ -1,7 +1,8 @@
 "use strict";
 var gCanvas;
 var gCtx;
-var gCurrMeme = gMeme.lines[0];
+var gCurrMeme = gMeme.lines;
+
 
 function init() {
   gCanvas = document.querySelector("#meme-canvas");
@@ -63,7 +64,7 @@ function drawText(text, x, y) {
   gCtx.strokeStyle = "black";
   gCtx.fillStyle = `${gCurrMeme.color}`;
   gCtx.lineWidth = "2";
-  gCtx.font = `${gCurrMeme.size}px IMPACT`;
+  gCtx.font = `${gCurrMeme.size}px ${gCurrMeme.font}`;
   gCtx.textAlign = gCurrMeme.align;
   gCtx.fillText(text, x, y);
   gCtx.strokeText(text, x, y);
