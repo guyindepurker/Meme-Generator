@@ -1,7 +1,7 @@
 'use strict';
 var gKeywords = {'happy':12,'funny':1};
 
-var gImgs = [{id:1,url:'./imgs/meme-imgs/1.jpg',keywords:['happy']},{id:2,url:'./imgs/meme-imgs/2.jpg',keywords:['funny']}];
+var gImgs = [{id:1,url:'imgs/meme-imgs/1.jpg',keywords:['happy']},{id:2,url:'imgs/meme-imgs/2.jpg',keywords:['funny']}];
 
 var gMeme = {
     selectedImgId:1,
@@ -49,10 +49,10 @@ function decreaseFont(num){
 
 function upLine(num){
     gMeme.lines[0].y += num;
-    console.log(gMeme.lines[0].y);
+   
 }
 function downLine(num){
     gMeme.lines[0].y -= num;
-    console.log(gMeme.lines[0].y);
+    
 }
 //**************************** */
