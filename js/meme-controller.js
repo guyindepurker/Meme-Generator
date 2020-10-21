@@ -23,7 +23,15 @@ function changeText(value){
      changeLineTxt(value,currIdx)
     renderMeme()
 }
-
+function onUpdateMeme(id){
+    var elMemeCanvas = document.querySelector('.canvas-container');
+    var elGallry = document.querySelector('.main-container');
+    console.log(id);
+    updateMeme(id)
+    renderMeme()
+    elGallry.style.display = 'none';
+    elMemeCanvas.style.display = 'block';
+}
 
 function drawImg(src,txt,x,y){
     var img = new Image();

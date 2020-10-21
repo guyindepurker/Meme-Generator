@@ -6,8 +6,10 @@ body{
     margin: 0;
     text-align: center;
 }
+
 .canvas-container{
     margin:0 auto;
+    display: none;
 }
 #meme-canvas{
     border: 1px solid black;

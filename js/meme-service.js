@@ -38,4 +38,7 @@ function changeLineTxt(txt,lineIdx){
    return gMeme.lines[lineIdx].txt = txt;
 }
 
+function updateMeme(id){
+    gMeme.selectedImgId = id;
+}
 
