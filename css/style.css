@@ -9,6 +9,6 @@ body{
 .canvas-container{
     margin:0 auto;
 }
-#canvas-meme{
+#meme-canvas{
     border: 1px solid black;
 }
