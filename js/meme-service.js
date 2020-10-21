@@ -58,6 +58,15 @@ function increaseFont(num){
     gMeme.lines[gMeme.selectedLineIdx].size += num
    
 }
+function changeFontSize(action,num){
+    if(action === 'decrease'){
+        if(gMeme.lines[gMeme.selectedLineIdx].size <= 20) return;
+        gMeme.lines[gMeme.selectedLineIdx].size -= num;
+    }else if(action === 'increase'){
+        if(gMeme.lines[gMeme.selectedLineIdx].size === 70) return;
+        gMeme.lines[gMeme.selectedLineIdx].size += num;
+    }
+}
 
 function decreaseFont(num){
     if(gMeme.lines[gMeme.selectedLineIdx].size <= 20) return;

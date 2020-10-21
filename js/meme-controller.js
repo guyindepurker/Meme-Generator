@@ -39,7 +39,10 @@ function onDownLine(num) {
   downLine(num);
   renderMeme();
 }
-
+function onChangeFontSize(action,num){
+    changeFontSize(action,num)
+    renderMeme();
+}
 function onIncreaseFont(num) {
     increaseFont(num);
     renderMeme();
