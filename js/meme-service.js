@@ -46,22 +46,22 @@ function updateMeme(id){
 // Later change all of this to one function
 function increaseFont(num){
     if(gMeme.lines[0].size === 70) return;
-    gMeme.lines[0].size += num
+    gMeme.lines[selectedLineIdx].size += num
     console.log(gMeme.lines[0].size,'service');
 }
 
 function decreaseFont(num){
-    if(gMeme.lines[0].size <= 20) return;
-    gMeme.lines[0].size -= num;
+    if(gMeme.lines[selectedLineIdx].size <= 20) return;
+    gMeme.lines[selectedLineIdx].size -= num;
     console.log(gMeme.lines[0].size,'service');
 }
 
 function upLine(num){
-    gMeme.lines[0].y += num;
+    gMeme.lines[selectedLineIdx].y += num;
    
 }
 function downLine(num){
-    gMeme.lines[0].y -= num;
+    gMeme.lines[selectedLineIdx].y -= num;
     
 }
 //**************************** */
