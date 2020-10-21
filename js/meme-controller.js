@@ -13,16 +13,25 @@ function renderMeme(){
     var meme = getMeme();
     var img = findImgById(meme.selectedImgId);
     var cuurLine = meme.lines[meme.selectedLineIdx]
-    drawImg(img.url,cuurLine.txt)
+    drawImg(img.url,cuurLine.txt,cuurLine.x,cuurLine.y)
 }
 
-function drawImg(src,txt){
+function changeText(value){
+    console.log(value);
+    var meme = getMeme()
+    var currIdx = meme.selectedLineIdx
+     changeLineTxt(value,currIdx)
+    renderMeme()
+}
+
+
+function drawImg(src,txt,x,y){
     var img = new Image();
     img.src = src;
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
-        drawText(txt,234,50)
-        drawText(txt,240,481)
+        drawText(txt,x,y)
+        // drawText(txt,240,481)
     }
 }
 

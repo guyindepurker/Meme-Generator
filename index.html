@@ -13,7 +13,7 @@
     </div>
     <div class="controls">
         <label for="enter-text">Enter Text:</label>
-        <input type="text" id="enter-text" name="text">
+        <input type="text" id="enter-text" name="text" placeholder="enter text" onkeyup="changeText(this.value)" onkeypress="changeText(this.value)">
     </div>
     <script src="js/utils.js"></script>
     <script src="js/meme-service.js"></script>
