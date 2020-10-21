@@ -12,6 +12,9 @@ body{
     height: 50px;
     cursor: pointer;
 }
+.change-line-btn{
+    background-color: burlywood;
+}
 .box-control,.controllers{
     margin: 15px;
 }
