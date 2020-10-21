@@ -13,12 +13,15 @@ function hendleEvent(ev) {
   console.log(ev);
 }
 function renderMeme() {
-  var meme = getMeme();
+//   var meme = getMeme();
   var img = findImgById(gMeme.selectedImgId);
-  var cuurLine = meme.lines[meme.selectedLineIdx];
-  drawImg(img.url, cuurLine.txt, cuurLine.x, cuurLine.y);
+//   var cuurLine = meme.lines[meme.selectedLineIdx];
+  drawImg(img.url);
 }
-
+function onSwitchLine(){
+    switchLine();
+    
+}
 function changeText(value) {
   console.log(value);
   var meme = getMeme();

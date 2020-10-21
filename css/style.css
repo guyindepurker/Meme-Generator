@@ -23,11 +23,11 @@ img{
 }
 .canvas-container{
     margin:0 auto;
-    display: none;
+    display: block;
 }
 #meme-canvas{
     border: 1px solid black;
 }
 .main-container{
-    display: block;
+    display: none;
 }

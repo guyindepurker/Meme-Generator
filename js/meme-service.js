@@ -28,6 +28,15 @@ var gMeme = {
  
 }
 
+function switchLine(){
+    var lengthLines = gMeme.lines.length -1;
+    if(gMeme.selectedLineIdx < lengthLines){
+        gMeme.selectedLineIdx++ 
+     } else if(gMeme.selectedLineIdx === lengthLines){
+        gMeme.selectedLineIdx=0
+    }
+}
+
 function getMeme(){
     return gMeme;
 }
