@@ -23,7 +23,7 @@ var gMeme = {
         font:'IMPACT',
         x:258,
         y:493
-    },
+    }
 ]
  
 }
@@ -54,23 +54,23 @@ function updateMeme(id){
 }
 // Later change all of this to one function
 function increaseFont(num){
-    if(gMeme.lines[0].size === 70) return;
-    gMeme.lines[selectedLineIdx].size += num
-    console.log(gMeme.lines[0].size,'service');
+    if(gMeme.lines[gMeme.selectedLineIdx].size === 70) return;
+    gMeme.lines[gMeme.selectedLineIdx].size += num
+   
 }
 
 function decreaseFont(num){
-    if(gMeme.lines[selectedLineIdx].size <= 20) return;
-    gMeme.lines[selectedLineIdx].size -= num;
-    console.log(gMeme.lines[0].size,'service');
+    if(gMeme.lines[gMeme.selectedLineIdx].size <= 20) return;
+    gMeme.lines[gMeme.selectedLineIdx].size -= num;
+   
 }
 
 function upLine(num){
-    gMeme.lines[selectedLineIdx].y += num;
+    gMeme.lines[gMeme.selectedLineIdx].y += num;
    
 }
 function downLine(num){
-    gMeme.lines[selectedLineIdx].y -= num;
+    gMeme.lines[gMeme.selectedLineIdx].y -= num;
     
 }
 //**************************** */
