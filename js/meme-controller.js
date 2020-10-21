@@ -19,6 +19,7 @@ function renderMeme() {
 }
 function onSwitchLine(){
     switchLine();
+    renderInput();
 
 }
 function changeText(value) {
@@ -77,3 +78,7 @@ function drawText(text,color,size,align, x, y,font='IMPACT') {
   gCtx.strokeText(text, x, y);
 }
 
+function renderInput(){
+    var elInput = document.querySelector('#enter-text');
+    elInput.value = gMemeLines[gMeme.selectedLineIdx].txt;
+}
