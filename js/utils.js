@@ -7,3 +7,8 @@ function toggleDisplay(selector,selector2){
     elSelctorHide.style.display = 'none';
     elSelectorShow.style.display = 'block';
 }
+function onGoHome(){
+    toggleDisplay("canvas-container","main-container");
+    console.log('go home');
+    
+}

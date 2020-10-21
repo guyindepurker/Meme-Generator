@@ -12,7 +12,7 @@ var gMeme = {
   lines: [
     {
       txt: "I never eat Falafel",
-      size: 30,
+      size: 35,
       align: "center",
       color: "white",
       stroke:'black',
@@ -22,7 +22,7 @@ var gMeme = {
     },
     {
       txt: "I never eat dog",
-      size: 30,
+      size: 35,
       align: "center",
       color: "white",
       stroke:'black',
@@ -82,8 +82,20 @@ function changeColor(type,value){
         gMeme.lines[gMeme.selectedLineIdx].stroke = value;
     }
 }
+function changeFont(fontValue){
+    gMeme.lines[gMeme.selectedLineIdx].font = fontValue;
+}
 
-
+function addLine(){
+    gMeme.lines.push(createLine())
+    gMeme.selectedLineIdx = gMeme.lines.length -1;
+}
+function removeLine(){
+    if(gMeme.lines.length<=1) return;
+  var idx =  gMeme.lines[gMeme.selectedLineIdx];
+  gMeme.lines.splice(idx,1)
+//   switchLine()
+}
 
 function getCurrTxt() {
   return gMeme.lines[gMeme.selectedLineIdx].txt;
@@ -93,4 +105,17 @@ function getCoordsLine(){
     var y = gMeme.lines[gMeme.selectedLineIdx].y
     var cuurLineCoords = {x,y}
     return cuurLineCoords;
+}
+
+function createLine(){
+return {
+    txt:'Enter text',
+    size:35,
+    align:'center',
+    color:'white',
+    stroke:'black',
+    font:'IMPACT',
+    x:250,
+    y:210
+}
 }

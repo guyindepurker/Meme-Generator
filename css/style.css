@@ -8,6 +8,7 @@ body{
     background-color: rgb(255, 244, 127);
     margin: 0;
     text-align: center;
+    font-family: sans-serif;
 }
 .btn {
     background-color: #fff;

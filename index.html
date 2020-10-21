@@ -13,15 +13,20 @@
     <section class="canvas-container">
         <canvas id="meme-canvas" height="500" width="500" onclick="hendleEvent(event)"></canvas>
         <div class="box-control">
+        
             <label class="title-enter-text"for="enter-text">Enter Text:</label>
             <input type="text" id="enter-text" name="text" placeholder="enter text" onkeyup="onChangeText(this.value)">
-                <section class="controllers">
+                <section class="controllers-text-meme">
+                    <div class="main-controler">
+                        <img src="design/icons/add.png" class="btn btn-main" onclick="onAddLine()">
+                        <img src="design/icons/trash.png" class="btn btn-main" onclick="onRemoveLine()">
+                    </div>
                     <img src="design/icons/increase-font-icon.png" class="btn increase-font" onclick="onChangeFontSize('increase',5)">
                     <img src="design/icons/decrease-font-icon.png" class="btn decrease-font" onclick="onChangeFontSize('decrease',5)">
                     <img src="design/icons/up-and-down-opposite-double-arrows-side-by-side.png" class="btn up-line" onclick="onMoveLine('up',5)">
                     <img src="design/icons/up-and-down-opposite-double-arrows-side-by-side.png" class="btn up-down" onclick="onMoveLine('down',5)">
                     <img src="design/icons/up-and-down-opposite-double-arrows-side-by-side.png" class="btn change-line-btn" onclick="onSwitchLine()">
-                    <div class="controls-text">
+                    <div class="controls-text-in-meme">
                         <div class="align-text">
                             <img src="/design/icons/align-to-right.png" class="btn" onclick="onAlignTxt('right')">
                             <img src="/design/icons/center-text-alignment.png" class="btn" onclick="onAlignTxt('center')">
@@ -33,6 +38,15 @@
                                 <img src="/design/icons/text-stroke.png" class="btn">
                                 <input type="color" id="stroke-color" name="stroke-text"
                                     value="#000000" onchange="onChangeColor('stroke',this.value)">
+                                    <select name="font-family" id="font-family" onchange="onChangeFont(this.value)">
+                                        <option value="IMPACT">IMPACT</option>
+                                        <option value="Arial56">Arial</option>
+                                        <option value="Georgia">Georgia</option>
+                                        <option value="Verdana">Verdana</option>
+                                        <option value="sans-serif">sans-serif</option>
+                                        <option value="Fantasy">Fantasy</option>
+                                        <option value="Cursive">Cursive</option>
+                                    </select>
                             </div>
 
 
