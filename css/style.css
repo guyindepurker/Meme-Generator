@@ -1,4 +1,14 @@
+*{
+    box-sizing: border-box;
+}
 body{
     background-color: rgb(255, 244, 127);
     margin: 0;
+    text-align: center;
+}
+.canvas-container{
+    margin:0 auto;
+}
+#canvas-meme{
+    border: 1px solid black;
 }
