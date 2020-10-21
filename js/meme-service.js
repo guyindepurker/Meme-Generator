@@ -12,11 +12,11 @@ var gMeme = {
         align:'center',
         color:'white',
         font:'IMPACT',
-        x:234,
+        x:258,
         y:50
     },
     {
-        txt:'I never eat food',
+        txt:'I never eat dog',
         size:30,
         align:'center',
         color:'white',

@@ -1,7 +1,7 @@
 "use strict";
 var gCanvas;
 var gCtx;
-var gCurrMeme = gMeme.lines;
+var gMemeLines = gMeme.lines;
 
 
 function init() {
@@ -43,29 +43,35 @@ function onIncreaseFont(num) {
     decreaseFont(num);
     renderMeme();
   }
-//   ***********
+//   *********** change all of the top to one func //
 function onUpdateMeme(id) {
   updateMeme(id);
   renderMeme();
   toggleDisplay("main-container", "canvas-container");
 }
 
-function drawImg(src, txt, x, y) {
+function drawImg(src) {
   var img = new Image();
   img.src = src;
   img.onload = () => {
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
-    drawText(txt, x, y);
-    // drawText(txt,240,481)
+    renderTexts(gMemeLines)
   };
 }
 
-function drawText(text, x, y) {
+function renderTexts(texts){
+    texts.forEach(line => {
+        drawText(line.txt,line.color,line.size,line.align, line.x, line.y,line.font)
+    });
+}
+
+function drawText(text,color,size,align, x, y,font='IMPACT') {
   gCtx.strokeStyle = "black";
-  gCtx.fillStyle = `${gCurrMeme.color}`;
+  gCtx.fillStyle = color;
   gCtx.lineWidth = "2";
-  gCtx.font = `${gCurrMeme.size}px ${gCurrMeme.font}`;
-  gCtx.textAlign = gCurrMeme.align;
+  gCtx.font = `${size}px ${font}`;
+  gCtx.textAlign = align;
   gCtx.fillText(text, x, y);
   gCtx.strokeText(text, x, y);
 }
+
