@@ -1,6 +1,9 @@
 *{
     box-sizing: border-box;
 }
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
 body{
     background-color: rgb(255, 244, 127);
     margin: 0;
@@ -30,4 +33,13 @@ img{
 }
 .main-container{
     display: none;
+}
+input{
+    font-size: 2rem;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+}
+label.title-enter-text{
+    font-size: 2rem;
 }

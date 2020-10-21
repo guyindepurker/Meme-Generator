@@ -73,3 +73,13 @@ function downLine(num){
     
 }
 //**************************** */
+function getInputTxt(){
+    return gMeme.lines[gMeme.selectedLineIdx].txt;
+}
+// function getCuurLine(){
+//     var x = gMeme.lines[gMeme.selectedLineIdx].x
+//     var y = gMeme.lines[gMeme.selectedLineIdx].y
+//     var size = gMeme.lines[gMeme.selectedLineIdx].size
+//     var focus = {x,y,size}
+//     return focus; 
+// }

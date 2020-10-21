@@ -8,7 +8,7 @@ function init() {
   gCanvas = document.querySelector("#meme-canvas");
   gCtx = gCanvas.getContext("2d");
   renderMeme();
-  console.log(gMeme.selectedLineIdx);
+  
 }
 function hendleEvent(ev) {
   console.log(ev);
@@ -20,6 +20,7 @@ function renderMeme() {
 function onSwitchLine(){
     switchLine();
     renderInput();
+   
 
 }
 function changeText(value) {
@@ -38,6 +39,7 @@ function onDownLine(num) {
   downLine(num);
   renderMeme();
 }
+
 function onIncreaseFont(num) {
     increaseFont(num);
     renderMeme();
@@ -59,6 +61,8 @@ function drawImg(src) {
   img.onload = () => {
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
     renderTexts(gMemeLines)
+    renderInput()
+    
   };
 }
 
@@ -80,5 +84,12 @@ function drawText(text,color,size,align, x, y,font='IMPACT') {
 
 function renderInput(){
     var elInput = document.querySelector('#enter-text');
-    elInput.value = gMemeLines[gMeme.selectedLineIdx].txt;
+    elInput.value = getInputTxt();
 }
+// function renderFocus(){
+//     var focus = getCuurLine();
+//     gCtx.beginPath()
+//     gCtx.rect(focus.x,focus.y,focus.x , focus.y)
+//     gCtx.strokeStyle = 'black'
+//     gCtx.stroke()
+// }
