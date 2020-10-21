@@ -18,13 +18,16 @@ body{
 .box-control,.controllers{
     margin: 15px;
 }
+img{
+    cursor: pointer;
+}
 .canvas-container{
     margin:0 auto;
-    display: block;
+    display: none;
 }
 #meme-canvas{
     border: 1px solid black;
 }
 .main-container{
-    display: none;
+    display: block;
 }
