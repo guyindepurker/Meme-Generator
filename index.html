@@ -14,11 +14,12 @@
         <canvas id="meme-canvas" height="500" width="500" onclick="hendleEvent(event)"></canvas>
         <div class="box-control">
             <label for="enter-text">Enter Text:</label>
-            <input type="text" id="enter-text" name="text" placeholder="enter text" onkeyup="changeText(this.value)"
-                onkeypress="changeText(this.value)">
+            <input type="text" id="enter-text" name="text" placeholder="enter text" onkeyup="changeText(this.value)">
                 <section class="controllers">
-                    <img src="./design/icons/increase-font-icon.png" class="btn increase-font">
-                    <img src="./design/icons/decrease-font-icon.png" class="btn decrease-font">
+                    <img src="./design/icons/increase-font-icon.png" class="btn increase-font" onclick="onIncreaseFont(5)">
+                    <img src="./design/icons/decrease-font-icon.png" class="btn decrease-font" onclick="onDecreaseFont(5)">
+                    <img src="/design/icons/up-and-down-opposite-double-arrows-side-by-side.png" class="btn up-line" onclick="onUpLine(5)">
+                    <img src="/design/icons/up-and-down-opposite-double-arrows-side-by-side.png" class="btn up-line" onclick="onDownLine(5)">
 
                 </section>
         </div>

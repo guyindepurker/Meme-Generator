@@ -8,21 +8,14 @@ var gMeme = {
     selectedLineIdx:0,
     lines:[{
         txt:'I never eat Falafel',
-        size:20,
-        align:'left',
-        color:'white',
-        x:234,
-        y:50
-    },
-    {
-        txt:'I never eat Hem',
-        size:10,
+        size:30,
         align:'center',
         color:'white',
-        x:null,
-        y:null
+        font:'IMPACT',
+        x:234,
+        y:50
     }
-],
+]
  
 }
 
@@ -41,4 +34,25 @@ function changeLineTxt(txt,lineIdx){
 function updateMeme(id){
     gMeme.selectedImgId = id;
 }
+// Later change all of this to one function
+function increaseFont(num){
+    if(gMeme.lines[0].size === 70) return;
+    gMeme.lines[0].size += num
+    console.log(gMeme.lines[0].size,'service');
+}
 
+function decreaseFont(num){
+    if(gMeme.lines[0].size <= 20) return;
+    gMeme.lines[0].size -= num;
+    console.log(gMeme.lines[0].size,'service');
+}
+
+function upLine(num){
+    gMeme.lines[0].y += num;
+    console.log(gMeme.lines[0].y);
+}
+function downLine(num){
+    gMeme.lines[0].y -= num;
+    console.log(gMeme.lines[0].y);
+}
+//**************************** */
