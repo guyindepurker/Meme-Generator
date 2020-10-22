@@ -101,6 +101,7 @@ button{
 #meme-canvas{
     margin-inline-end: 6.25rem;
     border: 1px solid black;
+    margin-bottom: 1rem;
 }
 /* Grid layout */
 .grid-container{
