@@ -4,19 +4,19 @@
 /* FontFace */
 @font-face {
     font-family: mon-normal;
-    src: url(/design/fonts/Montserrat/Montserrat-Regular.ttf)
+    src: url(design/fonts/Montserrat/Montserrat-Regular.ttf)
 }
 @font-face {
     font-family: mon-light;
-    src: url(/design/fonts/Montserrat/Montserrat-Light.ttf);
+    src: url(design/fonts/Montserrat/Montserrat-Light.ttf);
 }
 @font-face {
     font-family: mon-bold;
-    src: url(/design/fonts/Montserrat/Montserrat-SemiBold.ttf);
+    src: url(design/fonts/Montserrat/Montserrat-SemiBold.ttf);
 }
 @font-face {
     font-family: righteous;
-    src: url(/design/fonts/righteous/Righteous-Regular.ttf);
+    src: url(design/fonts/righteous/Righteous-Regular.ttf);
 }
 /* Basics */
 html{
