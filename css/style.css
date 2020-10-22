@@ -253,6 +253,8 @@ button{
     transition-duration: 0.3s;
     z-index: 0;
     margin: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 6px 0px black;
 }
 .gallery .img-gallery:hover{
     z-index: 999;
@@ -355,6 +357,8 @@ margin-bottom:1rem ;
     width: 60px;
     padding: 5px;
     cursor: pointer; 
+    box-shadow: 0 0 2px black;
+
 }
 .btn:active{
     background-color: #f4bc84;
