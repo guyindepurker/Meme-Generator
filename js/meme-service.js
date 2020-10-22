@@ -90,11 +90,11 @@ function addLine(){
     gMeme.lines.push(createLine())
     gMeme.selectedLineIdx = gMeme.lines.length -1;
 }
-function removeLine(idx){
+function removeLine(){
     if(gMeme.lines.length<=1) return;
-  // var idx =  gMeme.lines[gMeme.selectedLineIdx];
+  var idx =  gMeme.selectedLineIdx
   gMeme.lines.splice(idx,1)
-
+  gMeme.selectedLineIdx = gMeme.lines.length-1;
 }
 
 function getCurrTxt() {
@@ -110,6 +110,7 @@ function getCoordsLine(){
     var y = 0
     var cuurLineCoords = {}
     if(gMeme.lines.length === 1){
+      gMeme.selectedLineIdx = 0;
       x = gMeme.lines[0].x;
       y = gMeme.lines[0].y;
       cuurLineCoords = {x,y}
