@@ -7,8 +7,6 @@ function init() {
   gCanvas = document.querySelector("#meme-canvas");
   gCtx = gCanvas.getContext("2d");
   renderGallery()
-  renderMeme();
-
 }
 function hendleEvent(ev) {
   console.log(ev);
