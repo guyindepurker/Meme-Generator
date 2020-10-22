@@ -119,7 +119,7 @@ select{
     padding: 0.625rem;
     box-shadow: 0 0 2px 0px black;
     max-height: 500px;
-
+    position: relative;
 
 }
 .grid-container{
@@ -177,21 +177,23 @@ select{
     grid-column: 1/ span 1;
     grid-row: 4/5;
 }
-.text-stroke{
+.custom-stroke-txt{
     grid-column: 2/ span 1;
     grid-row: 4/5;
 }
 .text-stroke-input{
+    display: none !important;
+    /* DELETE THIS */
+    grid-row: 4/5;
+}
+.custom-txt-color{
     grid-column: 3/span 1;
     grid-row: 4/5;
 }
-.text-color{
-    grid-column: 4/span 1;
-    grid-row: 4/5;
-}
 .text-color-input{
-    grid-column: 5/span 1;
-    grid-row: 4/5;
+    display: none !important;
+    /* DO:DELETE THIS */
+    grid-row: 4/5; 
 }
 .btn-download{
     grid-column: 1/span 1;
@@ -201,8 +203,8 @@ select{
     grid-column: 2/span 1;
     grid-row: 5/6;
 }
-.btn-share{
-    grid-column: 3/span 1;
+.share{
+    grid-column: 3/4 !important;
     grid-row: 5/6;
 }
 .share-container{

@@ -49,16 +49,20 @@
                     <option value="Fantasy">Fantasy</option>
                     <option value="Cursive">Cursive</option>
                 </select>
-                <label for="stroke-color" class="custom-stroke-txt"></label>
-                <img src="design/icons/text-stroke.png" class="btn text-stroke">
-                <input type="color" id="stroke-color" class=" input-color text-stroke-input" name="stroke-text"
+                <label for="stroke-color" class="custom-stroke-txt">
+                    <img src="design/icons/text-stroke.png" class="btn text-stroke">
+                </label>
+               
+                    <label for="fill-color" class="custom-txt-color">
+                        <img src="design/icons/paint-board-and-brush.png" class="btn text-color">
+                    </label>
+                    <input type="color" id="stroke-color" class=" input-color text-stroke-input" name="stroke-text"
                     value="#000000" onchange="onChangeColor('stroke',this.value)">
-                    <img src="design/icons/paint-board-and-brush.png" class="btn text-color"> <input type="color" id="fill-color" name="fill-text"
-                    value="#ffffff" class=" input-color text-color-input" onchange="onChangeColor('fill',this.value)">
+ <input type="color" id="fill-color" name="fill-text" value="#ffffff" class=" input-color text-color-input" onchange="onChangeColor('fill',this.value)">
 
                     <a href="#" class="btn-orange btn-download" onclick="downloadImg(this)" download="my-meme.jpg">Download</a>
                     <button class="btn-orange btn-save">save</button>
-    <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+    <form action="" method="POST" enctype="multipart/form-data" class="share" onsubmit="uploadImg(this, event)">
         <input name="img" id="imgData" type="hidden" />
         <button class="btn-orange btn-share" type="submit">Publish</button>
     </form>
