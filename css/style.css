@@ -47,4 +47,15 @@ label.title-enter-text{
 .gallery .img-gallery{
     width: 250px;
     object-fit: contain;
+    border-radius: 10px;
+    filter: brightness(70%);
+    transition-duration: 0.3s;
+    z-index: 0;
+    margin: 5px;
+}
+.gallery .img-gallery:hover{
+    z-index: 999;
+    filter: brightness(1);
+    transform: scale(1.2);
+
 }
