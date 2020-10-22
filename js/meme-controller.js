@@ -40,7 +40,7 @@ function onAddLine(){
     renderMeme();
 }
 function onRemoveLine(){
-    removeLine();
+    removeLine(gMeme.selectedLineIdx);
     renderMeme();
 }
 function onChangeText(value) {

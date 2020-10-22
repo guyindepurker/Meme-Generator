@@ -32,7 +32,7 @@ var gMeme = {
     },
   ],
 };
-
+console.log(gMeme.selectedLineIdx);
 function getMeme() {
   return gMeme;
 }
@@ -48,7 +48,7 @@ function switchLine() {
   var lengthLines = gMeme.lines.length - 1;
   if (gMeme.selectedLineIdx < lengthLines) {
     gMeme.selectedLineIdx++;
-  } else if (gMeme.selectedLineIdx === lengthLines) {
+  } else if (gMeme.selectedLineIdx === lengthLines ||gMeme.lines.length === 1) {
     gMeme.selectedLineIdx = 0;
   }
 }
@@ -90,20 +90,34 @@ function addLine(){
     gMeme.lines.push(createLine())
     gMeme.selectedLineIdx = gMeme.lines.length -1;
 }
-function removeLine(){
+function removeLine(idx){
     if(gMeme.lines.length<=1) return;
-  var idx =  gMeme.lines[gMeme.selectedLineIdx];
+  // var idx =  gMeme.lines[gMeme.selectedLineIdx];
   gMeme.lines.splice(idx,1)
-//   switchLine()
+
 }
 
 function getCurrTxt() {
-  return gMeme.lines[gMeme.selectedLineIdx].txt;
+  if(gMeme.lines.length === 1){
+    gMeme.selectedLineIdx = 0
+    return gMeme.lines[gMeme.selectedLineIdx].txt
+  }else{
+    return gMeme.lines[gMeme.selectedLineIdx].txt;
+  }
 }
 function getCoordsLine(){
-    var x = gMeme.lines[gMeme.selectedLineIdx].x
-    var y = gMeme.lines[gMeme.selectedLineIdx].y
-    var cuurLineCoords = {x,y}
+    var x = 0
+    var y = 0
+    var cuurLineCoords = {}
+    if(gMeme.lines.length === 1){
+      x = gMeme.lines[0].x;
+      y = gMeme.lines[0].y;
+      cuurLineCoords = {x,y}
+    } else {
+       x = gMeme.lines[gMeme.selectedLineIdx].x
+       y = gMeme.lines[gMeme.selectedLineIdx].y
+       cuurLineCoords = {x,y}
+    }
     return cuurLineCoords;
 }
 
