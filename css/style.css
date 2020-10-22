@@ -44,3 +44,7 @@ input{
 label.title-enter-text{
     font-size: 2rem;
 }
+.gallery .img-gallery{
+    width: 250px;
+    object-fit: contain;
+}

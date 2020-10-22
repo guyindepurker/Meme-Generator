@@ -6,6 +6,7 @@ var gMemeLines = gMeme.lines;
 function init() {
   gCanvas = document.querySelector("#meme-canvas");
   gCtx = gCanvas.getContext("2d");
+  renderGallery()
   renderMeme();
 
 }
@@ -123,4 +124,13 @@ function renderFocus() {
   gCtx.lineTo(xEnd * 3, focus.y + 5);
   gCtx.strokeStyle = "rgb(255, 244, 127)";
   gCtx.stroke();
+}
+function renderGallery(){
+  var imgs = getImagesToRender();
+  var htmlStrs = imgs.map(img=>{
+    return `
+    <img src="${img.url}" class="img-gallery img-${img.id}" onclick="onSelectMemeToRender(${img.id})">
+    `
+  })
+  document.querySelector('.main-container .gallery').innerHTML = htmlStrs.join('');
 }
