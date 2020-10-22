@@ -292,8 +292,8 @@ text-align: left;
 }
 .about-me-container .social-icons li{
  margin-inline-start: 5px;
- /* width: 39px; */
- /* height: 39px; */
+ width: 39px;
+ height: 39px;
  border-radius: 12px;
  background-color: #ff7f00;
  padding: 7px 2px;
