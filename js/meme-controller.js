@@ -6,6 +6,7 @@ var gMemeLines = gMeme.lines;
 function init() {
   gCanvas = document.querySelector("#meme-canvas");
   gCtx = gCanvas.getContext("2d");
+  renderMeme();
   renderGallery()
 }
 function hendleEvent(ev) {
