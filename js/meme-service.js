@@ -36,6 +36,9 @@ var gMeme = {
 function getMeme() {
   return gMeme;
 }
+function getImagesToRender(){
+  return gImgs;
+}
 function findImgById(id) {
   return gImgs.find((img) => img.id === id);
 }
@@ -98,12 +101,8 @@ function removeLine(){
 }
 
 function getCurrTxt() {
-  if(gMeme.lines.length === 1){
-    gMeme.selectedLineIdx = 0
-    return gMeme.lines[gMeme.selectedLineIdx].txt
-  }else{
+  if(gMeme.lines.length === 1) gMeme.selectedLineIdx = 0;
     return gMeme.lines[gMeme.selectedLineIdx].txt;
-  }
 }
 function getCoordsLine(){
     var x = 0
