@@ -126,9 +126,12 @@ select{
     display: grid;
     min-width: 500px;
     min-height: 100%;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(5,auto);
     grid-auto-rows: 60px;
     gap: 10px;
+    
+
+    
 }
 .grid-input{
     grid-column: 1/6;
@@ -136,12 +139,16 @@ select{
 .up-line{
     grid-column: 1/2;
     grid-row: 2/3;
+    justify-self: center;
 }
 .down-line{
+    /* align-item: center; */
+    justify-self: end;
     grid-column: 2/span 1;
     grid-row: 2/3;
 }
 .switch-line{
+    justify-self: center;
     grid-column: 3/span 1;
     grid-row: 2/3;
 }
@@ -154,14 +161,17 @@ select{
     grid-row: 2/3;
 }
 .increase-font{
+    justify-self: center;
     grid-column: 1/span 1;
     grid-row: 3/4;
 }
 .decrease-font{
+    justify-self: end;
     grid-column: 2/span 1;
     grid-row: 3/4;
 }
 .align-right{
+    justify-self: center;
     grid-column: 3/span 1;
     grid-row: 3/4;
 }
@@ -178,7 +188,9 @@ select{
     grid-row: 4/5;
 }
 .custom-stroke-txt{
+    /* justify-self: start; */
     grid-column: 2/ span 1;
+    justify-self: end;
     grid-row: 4/5;
 }
 .text-stroke-input{
@@ -187,6 +199,7 @@ select{
     grid-row: 4/5;
 }
 .custom-txt-color{
+    justify-self: center;
     grid-column: 3/span 1;
     grid-row: 4/5;
 }
