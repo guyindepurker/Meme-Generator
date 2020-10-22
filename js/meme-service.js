@@ -32,7 +32,7 @@ var gMeme = {
     },
   ],
 };
-console.log(gMeme.selectedLineIdx);
+
 function getMeme() {
   return gMeme;
 }
@@ -109,16 +109,10 @@ function getCoordsLine(){
     var x = 0
     var y = 0
     var cuurLineCoords = {}
-    if(gMeme.lines.length === 1){
-      gMeme.selectedLineIdx = 0;
-      x = gMeme.lines[0].x;
-      y = gMeme.lines[0].y;
-      cuurLineCoords = {x,y}
-    } else {
+    if(gMeme.lines.length === 1) gMeme.selectedLineIdx = 0;
        x = gMeme.lines[gMeme.selectedLineIdx].x
        y = gMeme.lines[gMeme.selectedLineIdx].y
        cuurLineCoords = {x,y}
-    }
     return cuurLineCoords;
 }
 
