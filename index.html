@@ -17,6 +17,14 @@
         </ul>
     </header>
     <div class="canvas-container">
+        <div class="upload-img-container padding-container flex column justify-center align-center wrap">
+            <h4 class="title-upload-img">Or You can upload img</h4>
+            <label for="file-upload" class="custom-file-upload">
+                <i class="fas fa-upload"></i> Upload Image
+            </label>
+  <input type="file" class="file-input upload-img" id="file-upload"  name="image" onchange="onImgInput(event)" />
+            
+        </div>
     <section class="main-canvas padding-container flex  ">
         <canvas id="meme-canvas" height="500" width="500" onclick="hendleEvent(event)"></canvas>
         <section class="box-control grid-container">
@@ -34,22 +42,27 @@
                 <img src="design/icons/align-to-left.png" class="btn align-left" onclick="onAlignTxt('left')">
                 <select name="font-family" id="font-family" class="input-editor fonts-family" onchange="onChangeFont(this.value)">
                     <option value="IMPACT">IMPACT</option>
-                    <option value="Arial56">Arial</option>
+                    <option value="Arial">Arial</option>
                     <option value="Georgia">Georgia</option>
                     <option value="Verdana">Verdana</option>
                     <option value="sans-serif">sans-serif</option>
                     <option value="Fantasy">Fantasy</option>
                     <option value="Cursive">Cursive</option>
                 </select>
+                <label for="stroke-color" class="custom-stroke-txt"></label>
                 <img src="design/icons/text-stroke.png" class="btn text-stroke">
                 <input type="color" id="stroke-color" class=" input-color text-stroke-input" name="stroke-text"
                     value="#000000" onchange="onChangeColor('stroke',this.value)">
                     <img src="design/icons/paint-board-and-brush.png" class="btn text-color"> <input type="color" id="fill-color" name="fill-text"
                     value="#ffffff" class=" input-color text-color-input" onchange="onChangeColor('fill',this.value)">
 
-    <button class="btn-orange btn-share">share</button>
-    <button class="btn-orange btn-download">download</button>
-    <button class="btn-orange btn-save">save</button>
+                    <a href="#" class="btn-orange btn-download" onclick="downloadImg(this)" download="my-meme.jpg">Download</a>
+                    <button class="btn-orange btn-save">save</button>
+    <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+        <input name="img" id="imgData" type="hidden" />
+        <button class="btn-orange btn-share" type="submit">Publish</button>
+    </form>
+    <div class="share-container"></div>
 
         </section>
     </section>
