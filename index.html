@@ -1,73 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Memes Generator</title>
+    <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js" data-auto-a11y="true"></script>
+    <link rel="stylesheet" href="css/draft.css">
+    <title>design html draft</title>
 </head>
-
 <body onload="init()">
-    <h1>Meme Generator</h1>
-    <header class="main-header">
+    <header class="main-header flex space-between padding-container">
         
+        <div class="logo">memegen</div>
+        <ul class="main-nav clean-list flex">
+            <li><a href="#">gallery</a></li>
+            <li><a href="#">about</a></li>
+        </ul>
     </header>
-    <section class="canvas-container">
+    <section class="canvas-container main-canvas padding-container flex ">
         <canvas id="meme-canvas" height="500" width="500" onclick="hendleEvent(event)"></canvas>
-        <div class="box-control">
+        <section class="box-control grid-container">
+            
+                <input type="text" id="enter-text" class="input-editor grid-input" name="text" placeholder="enter text" onkeyup="onChangeText(this.value)">
+                <img src="design/icons/down-arrow.png" class="btn up-line" onclick="onMoveLine('up',5)">
+                <img src="design/icons/up-arrow.png" class="btn down-line" onclick="onMoveLine('down',5)">
+                <img src="design/icons/up-and-down-opposite-double-arrows-side-by-side.png" class="btn switch-line" onclick="onSwitchLine()">
+                <img src="design/icons/add.png" class="btn add-line" onclick="onAddLine()">
+                <img src="design/icons/trash.png" class="btn remove-line" onclick="onRemoveLine()">
+                <img src="design/icons/increase-font-icon.png" class="btn increase-font" onclick="onChangeFontSize('increase',5)">
+                <img src="design/icons/decrease-font-icon.png" class="btn decrease-font" onclick="onChangeFontSize('decrease',5)">
+                <img src="design/icons/align-to-right.png" class="btn align-right" onclick="onAlignTxt('right')">
+                <img src="design/icons/center-text-alignment.png" class="btn align-center" onclick="onAlignTxt('center')">
+                <img src="design/icons/align-to-left.png" class="btn align-left" onclick="onAlignTxt('left')">
+                <select name="font-family" id="font-family" class="input-editor fonts-family" onchange="onChangeFont(this.value)">
+                    <option value="IMPACT">IMPACT</option>
+                    <option value="Arial56">Arial</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="sans-serif">sans-serif</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Cursive">Cursive</option>
+                </select>
+                <img src="design/icons/text-stroke.png" class="btn text-stroke">
+                <input type="color" id="stroke-color" class=" input-color text-stroke-input" name="stroke-text"
+                    value="#000000" onchange="onChangeColor('stroke',this.value)">
+                    <img src="design/icons/paint-board-and-brush.png" class="btn text-color"> <input type="color" id="fill-color" name="fill-text"
+                    value="#ffffff" class=" input-color text-color-input" onchange="onChangeColor('fill',this.value)">
+
+    <button class="btn-orange btn-share">share</button>
+    <button class="btn-orange btn-share">download</button>
+
+        </section>
+    </section>
+
+    <main class="main-container">
+        <section class="search-container flex space-between wrap padding-container">
+            <input type="search" id="search-meme" name="search-meme" placeholder="enter search keyword &#8981;">
         
-            <label class="title-enter-text"for="enter-text">Enter Text:</label>
-            <input type="text" id="enter-text" name="text" placeholder="enter text" onkeyup="onChangeText(this.value)">
-                <section class="controllers-text-meme">
-                    <div class="main-controler">
-                        <img src="design/icons/add.png" class="btn btn-main" onclick="onAddLine()">
-                        <img src="design/icons/trash.png" class="btn btn-main" onclick="onRemoveLine()">
-                    </div>
-                    <img src="design/icons/increase-font-icon.png" class="btn increase-font" onclick="onChangeFontSize('increase',5)">
-                    <img src="design/icons/decrease-font-icon.png" class="btn decrease-font" onclick="onChangeFontSize('decrease',5)">
-                    <img src="design/icons/down-arrow.png" class="btn up-line" onclick="onMoveLine('up',5)">
-                    <img src="design/icons/up-arrow.png" class="btn up-down" onclick="onMoveLine('down',5)">
-                    <img src="design/icons/up-and-down-opposite-double-arrows-side-by-side.png" class="btn change-line-btn" onclick="onSwitchLine()">
-                    <div class="controls-text-in-meme">
-                        <div class="align-text">
-                            <img src="/design/icons/align-to-right.png" class="btn" onclick="onAlignTxt('right')">
-                            <img src="/design/icons/center-text-alignment.png" class="btn" onclick="onAlignTxt('center')">
-                            <img src="/design/icons/align-to-left.png" class="btn" onclick="onAlignTxt('left')">
-                        </div>
-                            <div class="controls-fonts">
-                                <img src="/design/icons/paint-board-and-brush.png" class="btn"> <input type="color" id="fill-color" name="fill-text"
-                                value="#ffffff" onchange="onChangeColor('fill',this.value)">
-                                <img src="/design/icons/text-stroke.png" class="btn">
-                                <input type="color" id="stroke-color" name="stroke-text"
-                                    value="#000000" onchange="onChangeColor('stroke',this.value)">
-                                    <select name="font-family" id="font-family" onchange="onChangeFont(this.value)">
-                                        <option value="IMPACT">IMPACT</option>
-                                        <option value="Arial56">Arial</option>
-                                        <option value="Georgia">Georgia</option>
-                                        <option value="Verdana">Verdana</option>
-                                        <option value="sans-serif">sans-serif</option>
-                                        <option value="Fantasy">Fantasy</option>
-                                        <option value="Cursive">Cursive</option>
-                                    </select>
-                            </div>
-
-
-                    </div>
-
-                </section>
-        </div>
-    </section>
-
-    <section class="main-container">
-        <div class="gallery">
-        </div>
-    </section>
     
+                <ul class="keyowrds-populer clean-list flex wrap">
+                    <li>funny</li>
+                    <li>comics</li>
+                    <li>comics</li>
+                    <li>comics</li>
+                    <li>comics</li>
+                    <li>comics</li>
+                    <li>comics</li>
+                    <li>comics</li>
+                    <li class="more-keywords">more...</li>
+                </ul>
+           
+        </section>
+        <section class="gallery-container gallery padding-container">
+            <img src="./imgs/meme-imgs/1.jpg" class="img-gallery" alt="" srcset="">
+            <img src="./imgs/meme-imgs/1.jpg" class="img-gallery" alt="" srcset="">
+            <img src="./imgs/meme-imgs/1.jpg" class="img-gallery" alt="" srcset="">
+            <img src="./imgs/meme-imgs/1.jpg" class="img-gallery" alt="" srcset="">
+            <img src="./imgs/meme-imgs/1.jpg" class="img-gallery" alt="" srcset="">
+            <img src="./imgs/meme-imgs/1.jpg" class="img-gallery" alt="" srcset="">
+            <img src="./imgs/meme-imgs/1.jpg" class="img-gallery" alt="" srcset="">
+            <img src="./imgs/meme-imgs/1.jpg" class="img-gallery" alt="" srcset="">
+            <img src="./imgs/meme-imgs/1.jpg" class="img-gallery" alt="" srcset="">
+            <img src="./imgs/meme-imgs/1.jpg" class="img-gallery" alt="" srcset="">
+            <img src="./imgs/meme-imgs/1.jpg" class="img-gallery" alt="" srcset="">
+        </section>
+        <section class="about-me-container flex  space-between ">
+            <img src="design/imgs/about.png" class="about-me-img">
+            <div class="content-about flex column wrap ">
+                <h3 class="title-about">guy indepurker</h3>
+                <p class="para">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae vel saepe dolore temporibus necessitatibus aliquid praesentium explicabo, sed laboriosam, fuga cupiditate ullam beatae magni eum iste magnam, autem eius tempore?</p>
+                <ul class="social-icons clean-list flex justify-center  wrap">
+                    <li class="icon"><a href="#"><i class="item-social fab fa-facebook-f"></i></a></li>
+                    <li class="icon"><a href="#"><i class="item-social fab fa-linkedin-in"></i></a></li>
+                    <li class="icon"><a href="#"><i class="item-social fab fa-github"></i></a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer class="main-footer padding-container flex column justify-center wrap">
+        <div class="logo">memegen</div>
+        <small class="copyright">made by guy indepurker &copy; all rights reserved 2019</small>
 
+    </footer>
     <script src="js/utils.js"></script>
     <script src="js/meme-service.js"></script>
     <script src="js/meme-controller.js"></script>
 </body>
-
 </html>
