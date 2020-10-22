@@ -125,10 +125,14 @@ function getCoordsLine(){
     var x = 0
     var y = 0
     var cuurLineCoords = {}
+    var txt=''
+    var size = 0;
     if(gMeme.lines.length === 1) gMeme.selectedLineIdx = 0;
        x = gMeme.lines[gMeme.selectedLineIdx].x
        y = gMeme.lines[gMeme.selectedLineIdx].y
-       cuurLineCoords = {x,y}
+       txt = gMeme.lines[gMeme.selectedLineIdx].txt
+       size = gMeme.lines[gMeme.selectedLineIdx].size
+       cuurLineCoords = {txt,size,x,y}
     return cuurLineCoords;
 }
 

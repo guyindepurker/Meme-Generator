@@ -120,11 +120,11 @@ select{
     box-shadow: 0 0 2px 0px black;
     max-height: 500px;
     position: relative;
-
+    /* min-width: 500px; */
 }
 .grid-container{
     display: grid;
-    min-width: 500px;
+    /* min-width: 500px; */
     min-height: 100%;
     grid-template-columns: repeat(5,auto);
     grid-auto-rows: 60px;

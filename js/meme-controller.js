@@ -10,7 +10,8 @@ function init() {
   renderGallery()
 }
 function hendleEvent(ev) {
-  console.log(ev);
+  console.log('y',ev.offsetX);
+  console.log('x',ev.offsetY);
 }
 
 function onSelectMemeToRender(id) {
@@ -111,18 +112,14 @@ function renderInput() {
 }
 function renderFocus() {
   var focus = getCoordsLine();
-  var xEnd = Math.abs(focus.x / 2);
-  gCtx.beginPath();
-  gCtx.moveTo(focus.x, focus.y + 5);
-  gCtx.lineTo(xEnd, focus.y + 5);
-  gCtx.strokeStyle = "rgb(255, 244, 127)";
-  gCtx.stroke();
-  gCtx.closePath();
-  gCtx.beginPath();
-  gCtx.moveTo(xEnd, focus.y + 5);
-  gCtx.lineTo(xEnd * 3, focus.y + 5);
-  gCtx.strokeStyle = "rgb(255, 244, 127)";
-  gCtx.stroke();
+  console.log(focus,'focus');
+  var txt = gCtx.measureText(focus.txt)
+  var sizeX = (focus.y === 210) ? txt.width+50 : txt.width/2;
+  gCtx.beginPath()
+  gCtx.rect(sizeX, focus.y-focus.size, txt.width, 40)
+  gCtx.strokeStyle = 'pink'
+  gCtx.stroke()
+  
 }
 function renderGallery(){
   var imgs = getImagesToRender();
@@ -153,3 +150,24 @@ function loadImageFromInput(ev, onImageReady) {
   }
   reader.readAsDataURL(ev.target.files[0]);
 }
+function renderCanvas(img) {
+  gCanvas.width = img.width;
+  gCanvas.height = img.height;
+  gCtx.drawImage(img, 0, 0);
+  // ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+}
+// function renderFocus2() {
+//     var focus = getCoordsLine();
+//     var xEnd = Math.abs(focus.x / 2);
+//     gCtx.beginPath();
+//     gCtx.moveTo(focus.x, focus.y + 5);
+//     gCtx.lineTo(xEnd, focus.y + 5);
+//     gCtx.strokeStyle = "rgb(255, 244, 127)";
+//     gCtx.stroke();
+//     gCtx.closePath();
+//     gCtx.beginPath();
+//     gCtx.moveTo(xEnd, focus.y + 5);
+//     gCtx.lineTo(xEnd * 3, focus.y + 5);
+//     gCtx.strokeStyle = "rgb(255, 244, 127)";
+//     gCtx.stroke();
+//   }
