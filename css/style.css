@@ -458,4 +458,14 @@ margin-bottom:1rem ;
     .box-control,.grid-container{
         width: 400px;
     }
+
+}
+@media (max-width:980px){
+    .about-me-container{
+        flex-flow: column wrap;
+    }
+    .about-me-container .about-me-img {
+        width: 200px;
+        height: 200px;
+}
 }
