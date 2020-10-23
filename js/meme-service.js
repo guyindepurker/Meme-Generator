@@ -1,7 +1,6 @@
 "use strict";
 
 var gKeywords = { happy: 12, funny: 12,love:12,dogs:12,nice:12,cats:12,baby:12,cool:12,angry:12,sad:12, };
-var gKeyWordsStrs =['happy', 'funny','love','dogs','nice','cats','baby','cool','angry','sad']
 var gImgs = [
   { id: 1, url: "imgs/meme-imgs/1.jpg", keywords: ['happy'] },
   { id: 2, url: "imgs/meme-imgs/2.jpg", keywords: ['love','dogs'] },
@@ -64,7 +63,7 @@ function findImgById(id) {
 function setMeme(id) {
   gMeme.selectedImgId = id;
 }
-// controls func
+// controls func service
 function switchLine() {
   var lengthLines = gMeme.lines.length - 1;
   if (gMeme.selectedLineIdx < lengthLines) {
@@ -131,6 +130,11 @@ function getLineToFocus(){
     return lineToFocus;
 }
 
+function increaseKeyWord(word){
+  gKeywords[word]++
+  console.log(gKeywords[word]);
+}
+
 function _createLine(){
 return {
     txt:'Enter text',
@@ -143,3 +147,4 @@ return {
     y:210
 }
 }
+

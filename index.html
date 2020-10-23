@@ -74,15 +74,18 @@
 </div>
 
     <main class="main-container">
-        <section class="search-container flex space-between wrap padding-container">
+        <section class="search-container flex space-around wrap padding-container">
             <input type="search" id="search-meme" name="search-meme" placeholder="enter search keyword &#8981;">
-        
-    
+
                 <ul class="keyowrds-populer clean-list flex wrap">
                     <li class="title-keywords">funny</li>
+    
                 </ul>
-                <span class="more-keywords" onclick="renderAllKeyWords()">more...</span>
-           
+                <div class="all-key-word hide">
+                    <ul class="keyowrds-populer keyowrds-list clean-list flex wrap">
+                    </ul>
+                </div>
+                <span class="more-keywords" onclick="onShowAll(this)">more...</span>
         </section>
         <section class="gallery-container gallery padding-container">
         </section>

@@ -304,6 +304,12 @@ background-color: #ff8000a1;
     font-size: 0.7rem;
     padding-top: 0.5rem;
 }
+.main-container .search-container .more-keywords{
+    cursor: pointer;
+}
+.hide{
+    display: none;
+}
 .main-container .search-container input[type="search"]{
     margin-inline-end: 0.9375rem;
     border: none;
