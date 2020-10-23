@@ -2,6 +2,7 @@
 var gCanvas;
 var gCtx;
 var gMemeLines = gMeme.lines;
+const IMGSAVE = 'IMGDB';
 
 function init() {
   gCanvas = document.querySelector("#meme-canvas");
@@ -137,7 +138,7 @@ function downloadImg(elLink) {
 
 
 
-
+//Load img to canvas
 function onImgInput(ev) {
   loadImageFromInput(ev, renderCanvas)
 }
