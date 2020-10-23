@@ -120,6 +120,10 @@ function onSearch(value){
 var imgs = document.querySelectorAll('.img-gallery');
 imgs.forEach((img)=>{
   if(img.getAttribute('alt').includes(value.toLowerCase())){
+    if(value.toLowerCase() === img.getAttribute('alt')){
+      increaseKeyWord(value.toLowerCase())
+      renderKeyWords()
+    }
     img.style.display = 'block';
   }else {
     img.style.display = 'none';
@@ -213,12 +217,7 @@ function addEventToMeme(){
 
   })
   elCanvas.addEventListener('mouseup',()=>{
-    // if (isDrawing === true) {
-    //   drawLine(gCtx,  gX,  gY, e.offsetX, e.offsetY);
-    //   gX = 0;
-    //   gY = 0;
-    //   isDrawing = false;
-    // }
+
     isDragging = false;
   })
 }
