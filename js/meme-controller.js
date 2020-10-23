@@ -75,7 +75,7 @@ function renderGallery(){
   var imgs = getImagesToRender();
   var htmlStrs = imgs.map(img=>{
     return `
-    <img src="${img.url}" class="img-gallery img-${img.id}" onclick="onSelectMemeToRender(${img.id})">
+    <img src="${img.url}" class="img-gallery img-${img.id}" alt="${img.keywords.join(' ')}" onclick="onSelectMemeToRender(${img.id})">
     `
   })
   document.querySelector('.main-container .gallery').innerHTML = htmlStrs.join('');
@@ -84,17 +84,20 @@ function renderKeyWords(){
   var elListPop = document.querySelector('.keyowrds-populer')
   var elListAll = document.querySelector('.keyowrds-list')
   var words = gKeywords;
-  var htmlStrs = [];
+  var keyowrds = [];
   for (var word in words){
-    htmlStrs.push(`
+    keyowrds.push(`
     <li class="title-keywords ${word}" style="font-size:${words[word]}px" onclick="onIncreaseKeyWord('${word}')">${word}</li>`)  
   }
-  var length = htmlStrs.length-5;
-  var populerWords =  htmlStrs.filter((str,idx)=>{
-    if(idx<length) return str;
+  var length = keyowrds.length-5;
+  var populerWords =  keyowrds.filter((str,idx)=>{
+    if(idx<=length) return str;
+  })
+  var restWords =keyowrds.filter((str,idx)=>{
+    if(idx>length) return str;
   })
   elListPop.innerHTML = populerWords.join('');
-  elListAll.innerHTML = htmlStrs.join('');
+  elListAll.innerHTML = restWords.join('');
 }
 function onIncreaseKeyWord(keyowrd){
   increaseKeyWord(keyowrd)
@@ -102,13 +105,23 @@ function onIncreaseKeyWord(keyowrd){
 }
 function onShowAll(elWord){
 var elAllList = document.querySelector('.all-key-word');
-elAllList.classList.toggle('hide')
+elAllList.classList.toggle('hide');
 if(elWord.innerText === 'more...'){
   elWord.innerText = 'close';
 }else{
-  elWord.innerText ='more...'
+  elWord.innerText ='more...';
 }
 
+}
+function onSearch(value){
+var imgs = document.querySelectorAll('.img-gallery');
+imgs.forEach((img)=>{
+  if(img.getAttribute('alt').includes(value.toLowerCase())){
+    img.style.display = 'block';
+  }else {
+    img.style.display = 'none';
+  }
+})
 }
 //Nevigate canvas:
 function onSwitchLine() {
@@ -178,13 +191,6 @@ function onSaveMeme(){
   saveToStorage(MEMEDB+`-${gSaveNum+1}`, gCanvas.toDataURL())
   gSaveNum++
   saveToStorage(MEMELIMIT,gSaveNum);
-}
-// responsive canvas:
-function resizeCanvas() {
-    var elContainer = document.querySelector('.meme-canvas-container');
-    // Note: changing the canvas dimension this way clears the canvas
-    gCanvas.width = elContainer.offsetWidth // show width & height in CSS
-    gCanvas.height = elContainer.offsetHeight
 }
 
 

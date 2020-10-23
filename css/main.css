@@ -112,6 +112,9 @@ select{
     border: 1px solid black;
     margin-bottom: 1rem;
 }
+canvas{
+    width: 100%;
+}
 /* Grid layout for box control */
 .box-control{
     background-color: rgba(252, 252, 252, 0.755);
