@@ -6,6 +6,9 @@ const MEMEDB = 'MEME';
 const MEMELIMIT = 'LIMIT';
 var gSaveNum = 0;
 var isDownload = false;
+var isDragging = false;
+var gX = 0;
+var gY = 0;
 
 function init() {
   gCanvas = document.querySelector("#meme-canvas");
@@ -13,6 +16,7 @@ function init() {
   renderMeme();
   renderGallery()
   renderKeyWords()
+  addEventToMeme()
 //   window.addEventListener('resize', function(){
 //     gCanvas.width = window.innerWidth
 //     gCanvas.height = window.innerHeight
@@ -55,7 +59,6 @@ function renderTexts(texts) {
     );
   });
 }
-
 function renderInput() {
   var elInput = document.querySelector("#enter-text");
   elInput.value = getCurrTxt();
@@ -70,7 +73,6 @@ function renderFocus() {
   var boundingY = y - height / 1.1 + 10;
   gCtx.strokeRect(x - (width / 2), boundingY, width, height - 5);
 }
-
 function renderGallery(){
   var imgs = getImagesToRender();
   var htmlStrs = imgs.map(img=>{
@@ -99,6 +101,7 @@ function renderKeyWords(){
   elListPop.innerHTML = populerWords.join('');
   elListAll.innerHTML = restWords.join('');
 }
+//Search func:
 function onIncreaseKeyWord(keyowrd){
   increaseKeyWord(keyowrd)
   renderKeyWords()
@@ -193,7 +196,44 @@ function onSaveMeme(){
   saveToStorage(MEMELIMIT,gSaveNum);
 }
 
+// add eventListner:
+function addEventToMeme(){
+  var elCanvas=document.getElementById('meme-canvas')
+  elCanvas.addEventListener('mousedown',e=>{
+   gX =e.offsetX;
+   gY =e.offsetY;
+   isDragging = true;
+  })
+  elCanvas.addEventListener('mousemove',e=>{
+    if (isDragging === true) {
+      drawLine(gCtx, gX, gY, e.offsetX, e.offsetY);
+      gX = e.offsetX;
+      gY = e.offsetY;
+    }
 
+  })
+  elCanvas.addEventListener('mouseup',()=>{
+    // if (isDrawing === true) {
+    //   drawLine(gCtx,  gX,  gY, e.offsetX, e.offsetY);
+    //   gX = 0;
+    //   gY = 0;
+    //   isDrawing = false;
+    // }
+    isDragging = false;
+  })
+}
+
+
+
+function drawLine(context, x1, y1, x2, y2) {
+  context.beginPath();
+  context.strokeStyle = 'black';
+  context.lineWidth = 1;
+  context.moveTo(x1, y1);
+  context.lineTo(x2, y2);
+  context.stroke();
+  context.closePath();
+}
 //Load img to canvas
 function onImgInput(ev) {
   loadImageFromInput(ev, renderCanvas)

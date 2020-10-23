@@ -132,6 +132,7 @@ canvas{
     grid-template-columns: repeat(5,auto);
     grid-auto-rows: 60px;
     gap: 10px;
+    position: relative;
     
 
     
@@ -197,8 +198,9 @@ canvas{
     grid-row: 4/5;
 }
 .text-stroke-input{
-    display: none !important;
-    /* DELETE THIS */
+    position: absolute;
+    opacity: 0;
+    top: 50;
     grid-row: 4/5;
 }
 .custom-txt-color{
@@ -207,8 +209,10 @@ canvas{
     grid-row: 4/5;
 }
 .text-color-input{
-    display: none !important;
-    /* DO:DELETE THIS */
+    position: absolute;
+    top: 50;
+    right: 50px;
+    opacity: 0;
     grid-row: 4/5; 
 }
 .btn-download{
