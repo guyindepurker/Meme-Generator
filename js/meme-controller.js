@@ -5,6 +5,7 @@ var gMemeLines = gMeme.lines;
 const MEMEDB = 'MEME';
 const MEMELIMIT = 'LIMIT';
 var gSaveNum = 0;
+var isDownload = false;
 
 function init() {
   gCanvas = document.querySelector("#meme-canvas");
@@ -111,6 +112,7 @@ function renderInput() {
   elInput.value = getCurrTxt();
 }
 function renderFocus() {
+  if(isDownload) return;
   var line = getLineToFocus();
   var x = line.x;
   var y = line.y;
