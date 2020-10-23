@@ -12,6 +12,12 @@ function init() {
   gCtx = gCanvas.getContext("2d");
   renderMeme();
   renderGallery()
+//   window.addEventListener('resize', function(){
+//     gCanvas.width = window.innerWidth
+//     gCanvas.height = window.innerHeight
+//   renderMeme();
+
+// })
 }
 function hendleEvent(ev) {
   console.log('y',ev.offsetX);
@@ -145,8 +151,13 @@ function onSaveMeme(){
   gSaveNum++
   saveToStorage(MEMELIMIT,gSaveNum);
 }
-
-
+// responsive canvas:
+function resizeCanvas() {
+    var elContainer = document.querySelector('.meme-canvas-container');
+    // Note: changing the canvas dimension this way clears the canvas
+    gCanvas.width = elContainer.offsetWidth // show width & height in CSS
+    gCanvas.height = elContainer.offsetHeight
+}
 
 
 //Load img to canvas
