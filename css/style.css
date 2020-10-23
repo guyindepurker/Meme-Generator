@@ -231,6 +231,9 @@ select{
     color: white;
     font-family:righteous ;
 }
+.logo::first-letter{
+    font-size: 2rem;
+}
 /* Header */
 .main-header .main-nav a,li{
     text-transform: capitalize;
@@ -446,6 +449,13 @@ margin-bottom:1rem ;
     font-family: mon-normal,sans-serif;
 }
 
+/* MEDIA SCREEN */
 
-
-
+@media (max-width:1300px){
+    .main-canvas{
+        flex-flow: column wrap;
+    }
+    .box-control,.grid-container{
+        width: 400px;
+    }
+}

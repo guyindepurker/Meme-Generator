@@ -28,7 +28,7 @@ var gMeme = {
   selectedLineIdx: 0,
   lines: [
     {
-      txt: "I never eat Falafel",
+      txt: "Enter a Text Here",
       size: 35,
       align: "center",
       color: "white",
@@ -38,7 +38,7 @@ var gMeme = {
       y: 50,
     },
     {
-      txt: "I never eat dog",
+      txt: "Enter a Text Here",
       size: 35,
       align: "center",
       color: "white",
@@ -91,7 +91,6 @@ function moveLine(action, num) {
     gMeme.lines[gMeme.selectedLineIdx].y -= num;
   }
 }
-// CONTROL LINES SETTING:
 function alignTxt(newAlign){
     gMeme.lines[gMeme.selectedLineIdx].align = newAlign;
 }
@@ -107,7 +106,7 @@ function changeFont(fontValue){
 }
 
 function addLine(){
-    gMeme.lines.push(createLine())
+    gMeme.lines.push(_createLine())
     gMeme.selectedLineIdx = gMeme.lines.length -1;
 }
 function removeLine(){
@@ -122,21 +121,16 @@ function getCurrTxt() {
     return gMeme.lines[gMeme.selectedLineIdx].txt;
 }
 function getLineToFocus(){
-    var x = 0
-    var y = 0
-    var lineToFocus = {}
-    var txt=''
-    var size = 0;
     if(gMeme.lines.length === 1) gMeme.selectedLineIdx = 0;
-       x = gMeme.lines[gMeme.selectedLineIdx].x
-       y = gMeme.lines[gMeme.selectedLineIdx].y
-       txt = gMeme.lines[gMeme.selectedLineIdx].txt
-       size = gMeme.lines[gMeme.selectedLineIdx].size
-       lineToFocus = {txt,size,x,y}
+     var  x = gMeme.lines[gMeme.selectedLineIdx].x
+     var  y = gMeme.lines[gMeme.selectedLineIdx].y
+     var  txt = gMeme.lines[gMeme.selectedLineIdx].txt
+     var  size = gMeme.lines[gMeme.selectedLineIdx].size
+     var  lineToFocus = {txt,size,x,y}
     return lineToFocus;
 }
 
-function createLine(){
+function _createLine(){
 return {
     txt:'Enter text',
     size:35,
