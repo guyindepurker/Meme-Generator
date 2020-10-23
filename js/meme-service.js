@@ -1,6 +1,7 @@
 "use strict";
-var gKeywords = { happy: 12, funny: 12,love:12,dogs:12,nice:12,cats:12,baby:12,cool:12,angry:12,sad:12, };
 
+var gKeywords = { happy: 12, funny: 12,love:12,dogs:12,nice:12,cats:12,baby:12,cool:12,angry:12,sad:12, };
+var gKeyWordsStrs =['happy', 'funny','love','dogs','nice','cats','baby','cool','angry','sad']
 var gImgs = [
   { id: 1, url: "imgs/meme-imgs/1.jpg", keywords: ['happy'] },
   { id: 2, url: "imgs/meme-imgs/2.jpg", keywords: ['love','dogs'] },

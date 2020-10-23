@@ -2,7 +2,9 @@
 var gCanvas;
 var gCtx;
 var gMemeLines = gMeme.lines;
-const IMGSAVE = 'IMGDB';
+const MEMEDB = 'MEME';
+const MEMELIMIT = 'LIMIT';
+var gSaveNum = 0;
 
 function init() {
   gCanvas = document.querySelector("#meme-canvas");
@@ -128,12 +130,19 @@ function renderGallery(){
   document.querySelector('.main-container .gallery').innerHTML = htmlStrs.join('');
 }
 
+
 function downloadImg(elLink) {
   var imgContent = gCanvas.toDataURL('image/jpeg');
   elLink.href = imgContent
 }
-
-
+//*** Bonus Save Meme ****/
+function onSaveMeme(){
+  gSaveNum = loadFromStorage(MEMELIMIT);
+  if(gSaveNum === 10) return alert('cant save more');
+  saveToStorage(MEMEDB+`-${gSaveNum+1}`, gCanvas.toDataURL())
+  gSaveNum++
+  saveToStorage(MEMELIMIT,gSaveNum);
+}
 
 
 

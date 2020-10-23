@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js" data-auto-a11y="true"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
     <title>Meme generator</title>
 </head>
 <body onload="init()">
     <header class="main-header flex space-between padding-container">
-        
         <div class="logo"><a href="index.html">memegen</a></div>
         <ul class="main-nav clean-list flex">
             <li><a href="index.html">gallery</a></li>
@@ -61,7 +60,7 @@
  <input type="color" id="fill-color" name="fill-text" value="#ffffff" class=" input-color text-color-input" onchange="onChangeColor('fill',this.value)">
 
                     <a href="#" class="btn-orange btn-download" onclick="downloadImg(this)" download="my-meme.jpg">Download</a>
-                    <button class="btn-orange btn-save">save</button>
+                    <button class="btn-orange btn-save" onclick="onSaveMeme()">save</button>
     <form action="" method="POST" enctype="multipart/form-data" class="share" onsubmit="uploadImg(this, event)">
         <input name="img" id="imgData" type="hidden" />
         <button class="btn-orange btn-share" type="submit">Publish</button>
@@ -78,16 +77,9 @@
         
     
                 <ul class="keyowrds-populer clean-list flex wrap">
-                    <li>funny</li>
-                    <li>comics</li>
-                    <li>comics</li>
-                    <li>comics</li>
-                    <li>comics</li>
-                    <li>comics</li>
-                    <li>comics</li>
-                    <li>comics</li>
-                    <li class="more-keywords">more...</li>
+                    <li class="title-keywords">funny</li>
                 </ul>
+                <span class="more-keywords" onclick="renderAllKeyWords()">more...</span>
            
         </section>
         <section class="gallery-container gallery padding-container">
@@ -110,8 +102,8 @@
         <small class="copyright">made by guy indepurker &copy; all rights reserved 2019</small>
 
     </footer>
-    <script src="js/storage-service.js"></script>
-    <script src="js/utils.js"></script>
+    <script src="js/utils/storage-service.js"></script>
+    <script src="js/utils/utils.js"></script>
     <script src="js/meme-service.js"></script>
     <script src="js/meme-controller.js"></script>
 </body>

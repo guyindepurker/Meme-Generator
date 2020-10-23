@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js" data-auto-a11y="true"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/save-meme-style.css">
     <title>Meme generator</title>
 </head>
-<body onload="init()">
+<body onload="initImgs()">
     <header class="main-header flex space-between padding-container">
         
         <div class="logo"><a href="index.html">memegen</a></div>
@@ -17,17 +17,16 @@
             <li><a href="saved-meme.html">memes</a></li>
         </ul>
     </header>
-    <main class="saved-meme-container padding-container">
-        <h1 class="title saved meme">here all your meme saved</h1>
-        <!-- <img src="imgs/meme-imgs/1.jpg"> -->
+    <main class="saved-meme-container padding-container justify-center align-center">
+        <h1 class="title-saved-meme">you can see your saved meme </h1>
+        <div class="meme-gallery flex justify-center align-center wrap"></div>
     </main>
     <footer class="main-footer padding-container flex column justify-center wrap">
         <div class="logo">memegen</div>
         <small class="copyright">made by guy indepurker &copy; all rights reserved 2019</small>
 
     </footer>
-    <script src="js/utils.js"></script>
-    <script src="js/meme-service.js"></script>
-    <script src="js/meme-controller.js"></script>
+    <script src="js/utils/storage-service.js"></script>
+    <script src="js/save-meme/save-meme-controller.js"></script>
 </body>
 </html>
