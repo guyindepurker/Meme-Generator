@@ -78,7 +78,7 @@ select{
     margin-bottom: 1.875rem;
 }
 .main-container{
-    display: none;
+    display: block;
 }
 .about-me-container{
     min-height: 35.3125rem;
@@ -100,7 +100,7 @@ select{
     text-align: center;
 }
 .canvas-container{
-    display: block;
+    display: none;
 }
 
 .main-canvas{

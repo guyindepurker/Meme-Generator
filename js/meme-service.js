@@ -121,10 +121,10 @@ function getCurrTxt() {
   if(gMeme.lines.length === 1) gMeme.selectedLineIdx = 0;
     return gMeme.lines[gMeme.selectedLineIdx].txt;
 }
-function getCoordsLine(){
+function getLineToFocus(){
     var x = 0
     var y = 0
-    var cuurLineCoords = {}
+    var lineToFocus = {}
     var txt=''
     var size = 0;
     if(gMeme.lines.length === 1) gMeme.selectedLineIdx = 0;
@@ -132,8 +132,8 @@ function getCoordsLine(){
        y = gMeme.lines[gMeme.selectedLineIdx].y
        txt = gMeme.lines[gMeme.selectedLineIdx].txt
        size = gMeme.lines[gMeme.selectedLineIdx].size
-       cuurLineCoords = {txt,size,x,y}
-    return cuurLineCoords;
+       lineToFocus = {txt,size,x,y}
+    return lineToFocus;
 }
 
 function createLine(){

@@ -20,8 +20,15 @@ function onSelectMemeToRender(id) {
   toggleDisplay("main-container", "canvas-container");
 }
 function renderMeme() {
-  var img = findImgById(gMeme.selectedImgId);
-  drawImg(img.url);
+  var imgToRender = findImgById(gMeme.selectedImgId);
+  var img = new Image();
+  img.src = imgToRender.url;
+  img.onload = () => {
+    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
+    renderTexts(gMemeLines);
+    renderInput();
+    renderFocus();
+  };
 }
 //Nevigate canvas:
 function onSwitchLine() {
@@ -70,16 +77,6 @@ function onChangeFont(value) {
 
 // END CONTROL BOX //
 
-function drawImg(src) {
-  var img = new Image();
-  img.src = src;
-  img.onload = () => {
-    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
-    renderTexts(gMemeLines);
-    renderInput();
-    renderFocus();
-  };
-}
 
 function renderTexts(texts) {
   texts.forEach((line) => {
@@ -111,16 +108,15 @@ function renderInput() {
   elInput.value = getCurrTxt();
 }
 function renderFocus() {
-  var focus = getCoordsLine();
-  console.log(focus,'focus');
-  var txt = gCtx.measureText(focus.txt)
-  var sizeX = (focus.y === 210) ? txt.width+50 : txt.width/2;
-  gCtx.beginPath()
-  gCtx.rect(sizeX, focus.y-focus.size, txt.width, 40)
-  gCtx.strokeStyle = 'pink'
-  gCtx.stroke()
-  
+  var line = getLineToFocus();
+  var x = line.x;
+  var y = line.y;
+  var width =  gCtx.measureText(line.txt).width
+  var height = line.size * 1.6;
+  var boundingY = y - height / 1.1 + 10;
+  gCtx.strokeRect(x - (width / 2), boundingY, width, height - 5);
 }
+
 function renderGallery(){
   var imgs = getImagesToRender();
   var htmlStrs = imgs.map(img=>{
@@ -135,6 +131,12 @@ function downloadImg(elLink) {
   var imgContent = gCanvas.toDataURL('image/jpeg');
   elLink.href = imgContent
 }
+
+
+
+
+
+
 
 function onImgInput(ev) {
   loadImageFromInput(ev, renderCanvas)
@@ -156,18 +158,3 @@ function renderCanvas(img) {
   gCtx.drawImage(img, 0, 0);
   // ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 }
-// function renderFocus2() {
-//     var focus = getCoordsLine();
-//     var xEnd = Math.abs(focus.x / 2);
-//     gCtx.beginPath();
-//     gCtx.moveTo(focus.x, focus.y + 5);
-//     gCtx.lineTo(xEnd, focus.y + 5);
-//     gCtx.strokeStyle = "rgb(255, 244, 127)";
-//     gCtx.stroke();
-//     gCtx.closePath();
-//     gCtx.beginPath();
-//     gCtx.moveTo(xEnd, focus.y + 5);
-//     gCtx.lineTo(xEnd * 3, focus.y + 5);
-//     gCtx.strokeStyle = "rgb(255, 244, 127)";
-//     gCtx.stroke();
-//   }
