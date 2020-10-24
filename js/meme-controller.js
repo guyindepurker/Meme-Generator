@@ -3,17 +3,16 @@
 let gCanvas;
 let gCtx;
 const gMemeLines = gMeme.lines;
-const MEMEDB = 'MEME';
-const MEMELIMIT = 'LIMIT';
+const MEMEDB = "MEME";
+const MEMELIMIT = "LIMIT";
 let gSaveNum = 0;
-
 
 function init() {
   gCanvas = document.querySelector("#meme-canvas");
   gCtx = gCanvas.getContext("2d");
   renderGallery();
-  renderKeyWords()  
-  window.addEventListener('resize', resizeCanvas);
+  renderKeyWords();
+  window.addEventListener("resize", resizeCanvas);
 }
 
 function onSelectMemeToRender(id) {
@@ -48,7 +47,6 @@ function renderTexts(texts) {
   });
 }
 function renderInput() {
-
   const elInput = document.querySelector("#enter-text");
   elInput.value = getCurrTxt();
 }
@@ -56,67 +54,72 @@ function renderFocus() {
   const line = getLineToFocus();
   const x = line.x;
   const y = line.y;
-  const width =  gCtx.measureText(line.txt).width
+  const width = gCtx.measureText(line.txt).width;
   const height = line.size * 1.6;
   const boundingY = y - height / 1.1 + 10;
-  gCtx.strokeRect(x - (width / 2), boundingY, width, height - 5);
+  gCtx.strokeRect(x - width / 2, boundingY, width, height - 5);
 }
 
-function renderGallery(){
+function renderGallery() {
   const imgs = getImagesToRender();
-  const htmlStrs = imgs.map(img=>{
+  const htmlStrs = imgs.map((img) => {
     return `
-    <img src="${img.url}" class="img-gallery img-${img.id}" alt="${img.keywords.join(' ')}" onclick="onSelectMemeToRender(${img.id})">
-    `
-  })
-  document.querySelector('.main-container .gallery').innerHTML = htmlStrs.join('');
+    <img src="${img.url}" class="img-gallery img-${
+      img.id
+    }" alt="${img.keywords.join(" ")}" onclick="onSelectMemeToRender(${
+      img.id
+    })">
+    `;
+  });
+  document.querySelector(".main-container .gallery").innerHTML = htmlStrs.join(
+    ""
+  );
 }
-function renderKeyWords(){
-  const elListPop = document.querySelector('.keyowrds-populer')
-  const elListAll = document.querySelector('.keyowrds-list')
+function renderKeyWords() {
+  const elListPop = document.querySelector(".keyowrds-populer");
+  const elListAll = document.querySelector(".keyowrds-list");
   const words = gKeywords;
   const keyowrds = [];
-  for (var word in words){
+  for (var word in words) {
     keyowrds.push(`
-    <li class="title-keywords ${word}" style="font-size:${words[word]}px" onclick="onSearch('${word}')">${word}</li>`)  
+    <li class="title-keywords ${word}" style="font-size:${words[word]}px" onclick="onSearch('${word}')">${word}</li>`);
   }
-  const length = keyowrds.length-5;
-  const populerWords =  keyowrds.filter((str,idx)=>{
-    if(idx<=length) return str;
-  })
-  const restWords =keyowrds.filter((str,idx)=>{
-    if(idx>length) return str;
-  })
-  elListPop.innerHTML = populerWords.join('');
-  elListAll.innerHTML = restWords.join('');
+  const length = keyowrds.length - 5;
+  const populerWords = keyowrds.filter((str, idx) => {
+    if (idx <= length) return str;
+  });
+  const restWords = keyowrds.filter((str, idx) => {
+    if (idx > length) return str;
+  });
+  elListPop.innerHTML = populerWords.join("");
+  elListAll.innerHTML = restWords.join("");
 }
 //Search func:
-function onIncreaseKeyWord(keyowrd){
-  increaseKeyWord(keyowrd)
-  renderKeyWords()
+function onIncreaseKeyWord(keyowrd) {
+  increaseKeyWord(keyowrd);
+  renderKeyWords();
 }
-function onShowAll(elWord){
-const elAllList = document.querySelector('.all-key-word');
-elAllList.classList.toggle('hide');
-if(elWord.innerText === 'more...'){
-  elWord.innerText = 'close';
-}else{
-  elWord.innerText ='more...';
-}
-
-}
-function onSearch(elValue){
-const value = elValue.toLowerCase()
-const isMatch = wordIsMatch(value);
-if(isMatch) onIncreaseKeyWord(value)
-const imgs = document.querySelectorAll('.img-gallery');
-imgs.forEach((img)=>{
-  if(img.getAttribute('alt').includes(value)){
-    img.style.display = 'block';
-  }else {
-    img.style.display = 'none';
+function onShowAll(elWord) {
+  const elAllList = document.querySelector(".all-key-word");
+  elAllList.classList.toggle("hide");
+  if (elWord.innerText === "more...") {
+    elWord.innerText = "close";
+  } else {
+    elWord.innerText = "more...";
   }
-})
+}
+function onSearch(elValue) {
+  const value = elValue.toLowerCase();
+  const isMatch = wordIsMatch(value);
+  if (isMatch) onIncreaseKeyWord(value);
+  const imgs = document.querySelectorAll(".img-gallery");
+  imgs.forEach((img) => {
+    if (img.getAttribute("alt").includes(value)) {
+      img.style.display = "block";
+    } else {
+      img.style.display = "none";
+    }
+  });
 }
 //Nevigate canvas:
 function onSwitchLine() {
@@ -131,13 +134,13 @@ function onMoveLine(action, num = 5) {
 }
 // FUNCS CONTROLS BOX:
 
-function onAddLine(){
-    addLine();
-    renderMeme();
+function onAddLine() {
+  addLine();
+  renderMeme();
 }
-function onRemoveLine(){
-    removeLine();
-    renderMeme();
+function onRemoveLine() {
+  removeLine();
+  renderMeme();
 }
 function onChangeText(value) {
   const meme = getMeme();
@@ -176,21 +179,21 @@ function drawText(text, color, stroke, size, align, x, y, font = "IMPACT") {
 }
 
 function downloadImg(elLink) {
-  var imgContent = gCanvas.toDataURL('image/jpeg');
-  elLink.href = imgContent
+  var imgContent = gCanvas.toDataURL("image/jpeg");
+  elLink.href = imgContent;
 }
 //*** Bonus Save Meme ****/
-function onSaveMeme(){
+function onSaveMeme() {
   gSaveNum = loadFromStorage(MEMELIMIT);
-  if(gSaveNum === 10) return alert('cant save more');
-  saveToStorage(MEMEDB+`-${gSaveNum+1}`, gCanvas.toDataURL())
-  gSaveNum++
-  saveToStorage(MEMELIMIT,gSaveNum);
+  if (gSaveNum === 10) return alert("cant save more");
+  saveToStorage(MEMEDB + `-${gSaveNum + 1}`, gCanvas.toDataURL());
+  gSaveNum++;
+  saveToStorage(MEMELIMIT, gSaveNum);
 }
 
 function drawLine(context, x1, y1, x2, y2) {
   context.beginPath();
-  context.strokeStyle = 'black';
+  context.strokeStyle = "black";
   context.lineWidth = 1;
   context.moveTo(x1, y1);
   context.lineTo(x2, y2);
@@ -199,20 +202,18 @@ function drawLine(context, x1, y1, x2, y2) {
 }
 //Load img to canvas
 function onImgInput(ev) {
-  loadImageFromInput(ev, renderMeme)
+  loadImageFromInput(ev, renderMeme);
 }
 
 function resizeCanvas() {
-  if(window.innerWidth <1070){
-    gCanvas.width = 400
-    gCanvas.height = 400
-    setCanvasSizes(400,true)
-  }else{
-    gCanvas.width = 500
-    gCanvas.height = 500
-    setCanvasSizes(500,false)
+  if (window.innerWidth < 1070) {
+    gCanvas.width = 400;
+    gCanvas.height = 400;
+    setCanvasSizes(400, true);
+  } else {
+    gCanvas.width = 500;
+    gCanvas.height = 500;
+    setCanvasSizes(500, false);
   }
   renderMeme();
 }
-
-
