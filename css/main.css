@@ -19,6 +19,10 @@
     src: url(../design/fonts/righteous/Righteous-Regular.ttf);
 }
 /* Basics */
+.canvas-content{
+    max-height: 500px;
+   max-width: 500px;
+}
 html{
     font-family: mon-normal, sans-serif;
     font-size: 16px;
@@ -529,7 +533,11 @@ margin-bottom:1rem ;
  }
 @media (max-width:1129px){
     .box-control{
+        margin-top: 10px;
         max-width: fit-content;
+        align-self: center;
+    }
+    .canvas-content{
         align-self: center;
     }
 }

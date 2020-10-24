@@ -1,4 +1,5 @@
 "use strict";
+
 var gCanvas;
 var gCtx;
 var gMemeLines = gMeme.lines;
@@ -10,18 +11,11 @@ var isDownload = false;
 function init() {
   gCanvas = document.querySelector("#meme-canvas");
   gCtx = gCanvas.getContext("2d");
-  renderMeme();
   renderGallery();
   renderKeyWords()  
-  // window.addEventListener('resize', resizeCanvas);
-  // window.addEventListener('resize', resizeEditor);
+  window.addEventListener('resize', resizeCanvas);
 }
 
-
-function hendleEvent(ev) {
-  console.log('y',ev.offsetX);
-  console.log('x',ev.offsetY);
-}
 function onSelectMemeToRender(id) {
   setMeme(id);
   renderMeme();
@@ -54,6 +48,7 @@ function renderTexts(texts) {
   });
 }
 function renderInput() {
+
   var elInput = document.querySelector("#enter-text");
   elInput.value = getCurrTxt();
 }
@@ -193,22 +188,8 @@ function onSaveMeme(){
   saveToStorage(MEMELIMIT,gSaveNum);
 }
 
-// add eventListner:
 
 
-function allowDrop(ev) {
-  ev.preventDefault();
-}
-
-function drag(ev) {
-  ev.dataTransfer.setData("text", ev.target.id);
-}
-
-function drop(ev) {
-  ev.preventDefault();
-  var data = ev.dataTransfer.getData("text");
-  ev.target.appendChild(document.getElementById(data));
-}
 
 
 
@@ -226,27 +207,19 @@ function onImgInput(ev) {
   loadImageFromInput(ev, renderMeme)
 }
 
-// function resizeCanvas() {
-//   var elContainer = document.querySelector('.canvas-content');
-//   // Note: changing the canvas dimension this way clears the canvas
-//   gCanvas.width = elContainer.offsetWidth // show width & height in CSS
-//   gCanvas.height = elContainer.offsetHeight
-// }
+
 
 function resizeCanvas() {
-  const elContainer = document.querySelector('.canvas-content');
-  gCanvas.width = window.innerWidth;;
-  gCanvas.height = window.innerHeighth;
+  if(window.innerWidth <1070){
+    gCanvas.width = 400
+    gCanvas.height = 400
+    setCanvasSizes(400,true)
+  }else{
+    gCanvas.width = 500
+    gCanvas.height = 500
+    setCanvasSizes(500,false)
+  }
   renderMeme();
 }
 
-// function resizeEditor() {
-//   const elEditor = document.querySelector('.box-control');
-//   elEditor.style.height = gCanvas.height + 'px';
-// }
 
-function setCanvasSizes(width) {
-  gMeme.lines.forEach(line => {
-      line.x = width / 2;
-  });
-}

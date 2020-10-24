@@ -28,7 +28,7 @@ var gMeme = {
   selectedLineIdx: 0,
   lines: [
     {
-      txt: "Enter a Text Here",
+      txt: "i eat",
       size: 35,
       align: "center",
       color: "white",
@@ -45,7 +45,7 @@ var gMeme = {
       stroke:'black',
       font: "IMPACT",
       x: 258,
-      y: 493,
+      y: 490,
     },
   ],
 };
@@ -144,7 +144,7 @@ return {
     stroke:'black',
     font:'IMPACT',
     x:250,
-    y:210
+    y:250
 }
 }
 function mouseMoveLine(ev) {
@@ -187,8 +187,17 @@ function wordIsMatch(word){
   var res = keys.some(key=>key === word)
   return res;
 }
-// function setCanvasSizes(width) {
-//   gMeme.lines.forEach(line => {
-//       line.x = width / 2;
-//   });
-// }
+function setCanvasSizes(width,isLess) {
+  if(isLess) {
+    gMeme.lines[1].y = width -15;
+    gMeme.lines.forEach(line=>{
+      line.x = width-200
+    })
+  }else if(!isLess){
+    gMeme.lines.forEach(line=>{
+      line.x = width/2
+    })
+    gMeme.lines[1].y = width -10;
+  }
+}
+
