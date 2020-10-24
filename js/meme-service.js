@@ -55,7 +55,7 @@ const gMeme = {
       align: "center",
       color: "white",
       stroke: "black",
-      font: "IMPACT",
+      font: "impact",
       x: 258,
       y: 50,
     },
