@@ -1,12 +1,12 @@
 "use strict";
 
-var gCanvas;
-var gCtx;
-var gMemeLines = gMeme.lines;
+let gCanvas;
+let gCtx;
+const gMemeLines = gMeme.lines;
 const MEMEDB = 'MEME';
 const MEMELIMIT = 'LIMIT';
-var gSaveNum = 0;
-var isDownload = false;
+let gSaveNum = 0;
+
 
 function init() {
   gCanvas = document.querySelector("#meme-canvas");
@@ -23,8 +23,8 @@ function onSelectMemeToRender(id) {
 }
 // render func
 function renderMeme() {
-  var imgToRender = findImgById(gMeme.selectedImgId);
-  var img = new Image();
+  const imgToRender = findImgById(gMeme.selectedImgId);
+  const img = new Image();
   img.src = imgToRender.url;
   img.onload = () => {
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
@@ -49,11 +49,10 @@ function renderTexts(texts) {
 }
 function renderInput() {
 
-  var elInput = document.querySelector("#enter-text");
+  const elInput = document.querySelector("#enter-text");
   elInput.value = getCurrTxt();
 }
 function renderFocus() {
-  if(isDownload) return;
   var line = getLineToFocus();
   var x = line.x;
   var y = line.y;
@@ -62,6 +61,7 @@ function renderFocus() {
   var boundingY = y - height / 1.1 + 10;
   gCtx.strokeRect(x - (width / 2), boundingY, width, height - 5);
 }
+
 function renderGallery(){
   var imgs = getImagesToRender();
   var htmlStrs = imgs.map(img=>{
