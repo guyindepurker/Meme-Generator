@@ -13,6 +13,8 @@ function init() {
   renderMeme();
   renderGallery();
   renderKeyWords()  
+  // window.addEventListener('resize', resizeCanvas);
+  // window.addEventListener('resize', resizeEditor);
 }
 
 
@@ -230,3 +232,22 @@ function onImgInput(ev) {
 //   gCanvas.width = elContainer.offsetWidth // show width & height in CSS
 //   gCanvas.height = elContainer.offsetHeight
 // }
+
+// function resizeCanvas() {
+//   const elContainer = document.querySelector('.canvas-content');
+//   gCanvas.width = elContainer.offsetWidth;
+//   gCanvas.height = gCanvas.width;
+//   setCanvasSizes(gCanvas.width);
+//   renderMeme();
+// }
+
+// function resizeEditor() {
+//   const elEditor = document.querySelector('.box-control');
+//   elEditor.style.height = gCanvas.height + 'px';
+// }
+
+function setCanvasSizes(width) {
+  gMeme.lines.forEach(line => {
+      line.x = width / 2;
+  });
+}

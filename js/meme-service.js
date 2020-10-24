@@ -187,3 +187,8 @@ function wordIsMatch(word){
   var res = keys.some(key=>key === word)
   return res;
 }
+// function setCanvasSizes(width) {
+//   gMeme.lines.forEach(line => {
+//       line.x = width / 2;
+//   });
+// }

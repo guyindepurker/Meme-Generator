@@ -6,7 +6,10 @@ function toggleDisplay(selector,selector2){
     elSelctorHide.style.display = 'none';
     elSelectorShow.style.display = 'block';
 }
-
+function toggleNav(){
+    console.log('toogle');
+    document.querySelector('.main-nav').classList.toggle('open')
+}
 // publish img:
 
 // on submit call to this function
