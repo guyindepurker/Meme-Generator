@@ -15,7 +15,7 @@ function loadMemeImgs() {
 
 function renderImgsMeme() {
   const elMemeGallery = document.querySelector(".meme-gallery");
-  const elContiner = document.querySelector(".saved-meme-container");
+  const elContiner = document.querySelector(".gallery-saved");
   if (!gMemeImgs || gMemeImgs.length === 0)
     return (elContiner.innerHTML =
       '<h1 class="title-saved-meme">You have not saved yet</h1>');

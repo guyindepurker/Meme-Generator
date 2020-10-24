@@ -3,11 +3,22 @@
     margin-top: 2rem;
    height: 100%;
 }
+
 .meme-gallery img{
-width: 250px;
-margin: 10px;
-border-radius: 5px;
-box-shadow: 0 0 2px 0px black;
+    object-fit: contain;
+    border-radius: 10px;
+    filter: brightness(70%);
+    transition-duration: 0.3s;
+    z-index: 0;
+    margin: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 6px 0px black;
+   width: 250px;
+}
+.meme-gallery img:hover{
+z-index: 999;
+    filter: brightness(1);
+    transform: scale(1.2);
 }
 .title-saved-meme{
     font-size: 3rem;
