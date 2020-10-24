@@ -1,6 +1,6 @@
 "use strict";
 var gImgLoadId = 1245;//In Case User uplpoad img
-var gKeywords = { happy: 22, funny: 30,love:29,dogs:22,nice:18,cats:18,baby:12,cool:12,angry:12,sad:12, };
+var gKeywords = { happy: 22, funny: 40,love:22,dogs:30,nice:22,cats:48,baby:22,cool:22,angry:22,sad:22, };
 var gImgs = [
   { id: 1, url: "imgs/meme-imgs/1.jpg", keywords: ['happy'] },
   { id: 2, url: "imgs/meme-imgs/2.jpg", keywords: ['love','dogs'] },

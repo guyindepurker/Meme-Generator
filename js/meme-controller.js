@@ -188,11 +188,6 @@ function onSaveMeme(){
   saveToStorage(MEMELIMIT,gSaveNum);
 }
 
-
-
-
-
-
 function drawLine(context, x1, y1, x2, y2) {
   context.beginPath();
   context.strokeStyle = 'black';
@@ -206,8 +201,6 @@ function drawLine(context, x1, y1, x2, y2) {
 function onImgInput(ev) {
   loadImageFromInput(ev, renderMeme)
 }
-
-
 
 function resizeCanvas() {
   if(window.innerWidth <1070){
