@@ -233,13 +233,12 @@ function onImgInput(ev) {
 //   gCanvas.height = elContainer.offsetHeight
 // }
 
-// function resizeCanvas() {
-//   const elContainer = document.querySelector('.canvas-content');
-//   gCanvas.width = elContainer.offsetWidth;
-//   gCanvas.height = gCanvas.width;
-//   setCanvasSizes(gCanvas.width);
-//   renderMeme();
-// }
+function resizeCanvas() {
+  const elContainer = document.querySelector('.canvas-content');
+  gCanvas.width = window.innerWidth;;
+  gCanvas.height = window.innerHeighth;
+  renderMeme();
+}
 
 // function resizeEditor() {
 //   const elEditor = document.querySelector('.box-control');
