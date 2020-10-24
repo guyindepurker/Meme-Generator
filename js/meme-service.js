@@ -132,7 +132,6 @@ function getLineToFocus(){
 
 function increaseKeyWord(word){
   gKeywords[word]++
-  
 }
 
 function _createLine(){
@@ -147,31 +146,12 @@ return {
     y:250
 }
 }
-// function mouseMoveLine(ev) {
-//   if (gMeme.selectedLineIdx === -1) return;
-//   gMeme.lines[gMeme.selectedLineIdx].x = ev.offsetX;
-//   gMeme.lines[gMeme.selectedLineIdx].y = ev.offsetY;
-// }
-
-// function toggleMouseState() {
-//   gOnMouseDown = !gOnMouseDown;
-
-// }
-
-// function mouseSelectLine(ev) {
-//   const { offsetX, offsetY } = ev;
-//   gMeme.selectedLineIdx = gMeme.lines.findIndex((line) => {
-//       var width = gCtx.measureText(line.txt).width
-//       return offsetY > (line.y - line.size) && offsetY < line.y && offsetX > line.x && offsetX < line.x + width;
-//   })
-// }
 
 
 function loadImageFromInput(ev, onImageReady) {
   var reader = new FileReader();
   reader.onload = function (event) {
     var img = new Image();
-    console.log(gImgLoadId,'before');
     img.onload = onImageReady.bind(null, img)
     img.src = event.target.result;
     gImgs.push({id:gImgLoadId,url:img.src})
