@@ -1,7 +1,7 @@
 "use strict";
-var gImgLoadId = 1245;//In Case User uplpoad img
-var gKeywords = { happy: 22, funny: 40,love:22,dogs:30,nice:22,cats:48,baby:22,cool:22,angry:22,sad:22, };
-var gImgs = [
+let gImgLoadId = 17845;//In Case User uplpoad more the one img in same time
+const gKeywords = { happy: 22, funny: 40,love:22,dogs:30,nice:22,cats:48,baby:22,cool:22,angry:22,sad:22, };
+const gImgs = [
   { id: 1, url: "imgs/meme-imgs/1.jpg", keywords: ['happy'] },
   { id: 2, url: "imgs/meme-imgs/2.jpg", keywords: ['love','dogs'] },
   { id: 3, url: "imgs/meme-imgs/3.jpg", keywords: ['love','dogs','nice','baby'] },
@@ -23,12 +23,12 @@ var gImgs = [
 
 ];
 
-var gMeme = {
+const gMeme = {
   selectedImgId: 1,
   selectedLineIdx: 0,
   lines: [
     {
-      txt: "i eat",
+      txt: "Enter Text",
       size: 35,
       align: "center",
       color: "white",
@@ -65,7 +65,7 @@ function setMeme(id) {
 }
 // controls func service
 function switchLine() {
-  var lengthLines = gMeme.lines.length - 1;
+  const lengthLines = gMeme.lines.length - 1;
   if (gMeme.selectedLineIdx < lengthLines) {
     gMeme.selectedLineIdx++;
   } else if (gMeme.selectedLineIdx === lengthLines ||gMeme.lines.length === 1) {
@@ -110,8 +110,8 @@ function addLine(){
     gMeme.selectedLineIdx = gMeme.lines.length -1;
 }
 function removeLine(){
-    if(gMeme.lines.length<=1) return;
-  var idx =  gMeme.selectedLineIdx
+    if(gMeme.lines.length<=1) return gMeme.lines[0].txt='Enter a text!';
+  const idx =  gMeme.selectedLineIdx
   gMeme.lines.splice(idx,1)
   gMeme.selectedLineIdx = gMeme.lines.length-1;
 }
@@ -122,17 +122,17 @@ function getCurrTxt() {
 }
 function getLineToFocus(){
     if(gMeme.lines.length === 1) gMeme.selectedLineIdx = 0;
-     var  x = gMeme.lines[gMeme.selectedLineIdx].x
-     var  y = gMeme.lines[gMeme.selectedLineIdx].y
-     var  txt = gMeme.lines[gMeme.selectedLineIdx].txt
-     var  size = gMeme.lines[gMeme.selectedLineIdx].size
-     var  lineToFocus = {txt,size,x,y}
+     const  x = gMeme.lines[gMeme.selectedLineIdx].x
+     const  y = gMeme.lines[gMeme.selectedLineIdx].y
+     const  txt = gMeme.lines[gMeme.selectedLineIdx].txt
+     const  size = gMeme.lines[gMeme.selectedLineIdx].size
+     const  lineToFocus = {txt,size,x,y}
     return lineToFocus;
 }
 
 function increaseKeyWord(word){
   gKeywords[word]++
-  console.log(gKeywords[word]);
+  
 }
 
 function _createLine(){
@@ -147,24 +147,24 @@ return {
     y:250
 }
 }
-function mouseMoveLine(ev) {
-  if (gMeme.selectedLineIdx === -1) return;
-  gMeme.lines[gMeme.selectedLineIdx].x = ev.offsetX;
-  gMeme.lines[gMeme.selectedLineIdx].y = ev.offsetY;
-}
+// function mouseMoveLine(ev) {
+//   if (gMeme.selectedLineIdx === -1) return;
+//   gMeme.lines[gMeme.selectedLineIdx].x = ev.offsetX;
+//   gMeme.lines[gMeme.selectedLineIdx].y = ev.offsetY;
+// }
 
-function toggleMouseState() {
-  gOnMouseDown = !gOnMouseDown;
-  setCanvasState();
-}
+// function toggleMouseState() {
+//   gOnMouseDown = !gOnMouseDown;
 
-function mouseSelectLine(ev) {
-  const { offsetX, offsetY } = ev;
-  gMeme.selectedLineIdx = gMeme.lines.findIndex((line) => {
-      var width = gCtx.measureText(line.txt).width
-      return offsetY > (line.y - line.size) && offsetY < line.y && offsetX > line.x && offsetX < line.x + width;
-  })
-}
+// }
+
+// function mouseSelectLine(ev) {
+//   const { offsetX, offsetY } = ev;
+//   gMeme.selectedLineIdx = gMeme.lines.findIndex((line) => {
+//       var width = gCtx.measureText(line.txt).width
+//       return offsetY > (line.y - line.size) && offsetY < line.y && offsetX > line.x && offsetX < line.x + width;
+//   })
+// }
 
 
 function loadImageFromInput(ev, onImageReady) {
@@ -183,8 +183,8 @@ function loadImageFromInput(ev, onImageReady) {
 }
 
 function wordIsMatch(word){
-  var keys =  Object.keys(gKeywords);
-  var res = keys.some(key=>key === word)
+  const keys =  Object.keys(gKeywords);
+  const res = keys.some(key=>key === word)
   return res;
 }
 function setCanvasSizes(width,isLess) {

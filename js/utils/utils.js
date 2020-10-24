@@ -1,13 +1,12 @@
 'use strict';
 
 function toggleDisplay(selector,selector2){
-    var elSelctorHide = document.querySelector('.'+selector); //hide
-    var elSelectorShow = document.querySelector('.'+selector2); //show
+    const elSelctorHide = document.querySelector('.'+selector); //hide
+    const elSelectorShow = document.querySelector('.'+selector2); //show
     elSelctorHide.style.display = 'none';
     elSelectorShow.style.display = 'block';
 }
 function toggleNav(){
-    console.log('toogle');
     document.querySelector('.main-nav').classList.toggle('open')
 }
 // publish img:

@@ -344,7 +344,7 @@ background-color: #ff8000a1;
 /* Gallery  */
 .choose-meme {
     font-size: 3rem;
-    font-family: 'mon-bold';
+    font-family: mon-bold,sans-serif;
     text-shadow: 1px 1px 0px #dc7923;
     color: white;
 }
@@ -490,6 +490,9 @@ margin-right: 10px;
     border-radius: 20px;
     font-family: mon-normal,sans-serif;
     transition-duration: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .btn-orange:hover{
     color: black;

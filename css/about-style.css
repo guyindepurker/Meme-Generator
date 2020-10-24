@@ -1,1 +1,28 @@
-@import "main.css"
+@import "main.css";
+
+.main-about ul{
+    list-style-type: upper-roman;
+    margin: 0;
+}
+.main-about li{
+    text-transform: lowercase;
+    align-self: start;
+   
+
+}
+.main-about{
+margin-top: 2rem;
+margin-bottom: 2rem;
+}
+.main-about > *{
+    margin-bottom: 0.5rem;
+}
+.title-about-us{
+    font-size: 3rem;
+    font-family: mon-bold,sans-serif;
+    text-shadow: 1px 1px 0px #dc7923;
+    color: white;
+}
+.qus-title{
+    letter-spacing: 1px;
+}
