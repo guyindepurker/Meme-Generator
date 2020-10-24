@@ -156,3 +156,4 @@ label.title-enter-text{
     transform: scale(1.2);
 
 }
+<i class="far fa-save"></i>

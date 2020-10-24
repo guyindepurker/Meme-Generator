@@ -11,10 +11,8 @@ function init() {
   gCanvas = document.querySelector("#meme-canvas");
   gCtx = gCanvas.getContext("2d");
   renderMeme();
-  renderGallery()
-  renderKeyWords()
- 
-  
+  renderGallery();
+  renderKeyWords()  
 }
 
 
@@ -226,3 +224,9 @@ function onImgInput(ev) {
   loadImageFromInput(ev, renderMeme)
 }
 
+// function resizeCanvas() {
+//   var elContainer = document.querySelector('.canvas-content');
+//   // Note: changing the canvas dimension this way clears the canvas
+//   gCanvas.width = elContainer.offsetWidth // show width & height in CSS
+//   gCanvas.height = elContainer.offsetHeight
+// }

@@ -25,9 +25,11 @@
   <input type="file" class="file-input upload-img" id="file-upload"  name="image" onchange="onImgInput(event)" />
             
         </div>
-    <section class="main-canvas padding-container flex  ">
-       
-            <canvas id="meme-canvas" height="500" width="500" onclick="hendleEvent(event)"></canvas>
+    <section class="main-canvas padding-container flex space-around ">
+       <div class="canvas-content">
+
+           <canvas id="meme-canvas" height="500" width="500" onclick="hendleEvent(event)"></canvas>
+        </div>
        
         <section class="box-control grid-container">
             
@@ -61,13 +63,14 @@
                     value="#000000" onchange="onChangeColor('stroke',this.value)">
  <input type="color" id="fill-color" name="fill-text" value="#ffffff" class=" input-color text-color-input" onchange="onChangeColor('fill',this.value)">
 
-                    <a href="#" class="btn-orange btn-download" onclick="downloadImg(this)" download="my-meme.jpg">Download</a>
-                    <button class="btn-orange btn-save" onclick="onSaveMeme()">save</button>
+                    <a href="#" class="btn-orange btn-download" onclick="downloadImg(this)" download="my-meme.jpg"><i class="fas fa-download"></i>
+                    </a>
+                    <button class="btn-orange btn-save" onclick="onSaveMeme()"><i class="far fa-save"></i>
+                    </button>
     <form action="" method="POST" enctype="multipart/form-data" class="share" onsubmit="uploadImg(this, event)">
         <input name="img" id="imgData" type="hidden" />
-        <button class="btn-orange btn-share" type="submit">Publish</button>
+        <button class="btn-orange btn-share btn-padding" type="submit"><i class="fas fa-share-alt"></i></button>
     </form>
-    <div class="share-container"></div>
 
         </section>
     </section>
