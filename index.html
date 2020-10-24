@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/main.css">
     <title>Meme generator</title>
 </head>
-<body onload="init()">
+<body onload="init()" class="disable-dbl-tap-zoom">
     <header class="main-header flex space-between padding-container">
         <div class="logo"><a href="index.html">memegen</a></div>
         <ul class="main-nav clean-list flex">
@@ -87,6 +87,7 @@
                 </div>
                 <span class="more-keywords" onclick="onShowAll(this)">more...</span>
         </section>
+        <article><h1 class="choose-meme">Choose Meme</h1></article>
         <section class="gallery-container gallery padding-container">
         </section>
         <section class="about-me-container flex  space-between ">

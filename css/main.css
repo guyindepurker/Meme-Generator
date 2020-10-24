@@ -31,6 +31,9 @@ body{
     font-size: 1.1875rem;
     height: 100vh;
 }
+body.disable-dbl-tap-zoom{
+    touch-action: manipulation; 
+}
 h1,h2,h3,h4,h5,h6{
     margin: 0;
 }
@@ -334,6 +337,15 @@ background-color: #ff8000a1;
     font-size: 1.9rem;
 }
 /* Gallery  */
+.choose-meme {
+    font-size: 3rem;
+    font-family: 'mon-bold';
+    text-shadow: 1px 1px 0px #dc7923;
+    color: white;
+}
+.choose-meme::first-letter{
+    font-size: 5rem;
+}
 .gallery .img-gallery{
     width: 250px;
     object-fit: contain;

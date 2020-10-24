@@ -6,9 +6,6 @@ const MEMEDB = 'MEME';
 const MEMELIMIT = 'LIMIT';
 var gSaveNum = 0;
 var isDownload = false;
-var isDragging = false;
-var gX = 0;
-var gY = 0;
 
 function init() {
   gCanvas = document.querySelector("#meme-canvas");
@@ -16,14 +13,11 @@ function init() {
   renderMeme();
   renderGallery()
   renderKeyWords()
-  addEventToMeme()
-//   window.addEventListener('resize', function(){
-//     gCanvas.width = window.innerWidth
-//     gCanvas.height = window.innerHeight
-//   renderMeme();
-
-// })
+ 
+  
 }
+
+
 function hendleEvent(ev) {
   console.log('y',ev.offsetX);
   console.log('x',ev.offsetY);
@@ -89,7 +83,7 @@ function renderKeyWords(){
   var keyowrds = [];
   for (var word in words){
     keyowrds.push(`
-    <li class="title-keywords ${word}" style="font-size:${words[word]}px" onclick="onIncreaseKeyWord('${word}')">${word}</li>`)  
+    <li class="title-keywords ${word}" style="font-size:${words[word]}px" onclick="onSearch('${word}')">${word}</li>`)  
   }
   var length = keyowrds.length-5;
   var populerWords =  keyowrds.filter((str,idx)=>{
@@ -116,14 +110,13 @@ if(elWord.innerText === 'more...'){
 }
 
 }
-function onSearch(value){
+function onSearch(elValue){
+var value = elValue.toLowerCase()
+var isMatch = wordIsMatch(value);
+if(isMatch) onIncreaseKeyWord(value)
 var imgs = document.querySelectorAll('.img-gallery');
 imgs.forEach((img)=>{
-  if(img.getAttribute('alt').includes(value.toLowerCase())){
-    if(value.toLowerCase() === img.getAttribute('alt')){
-      increaseKeyWord(value.toLowerCase())
-      renderKeyWords()
-    }
+  if(img.getAttribute('alt').includes(value)){
     img.style.display = 'block';
   }else {
     img.style.display = 'none';
@@ -201,25 +194,20 @@ function onSaveMeme(){
 }
 
 // add eventListner:
-function addEventToMeme(){
-  var elCanvas=document.getElementById('meme-canvas')
-  elCanvas.addEventListener('mousedown',e=>{
-   gX =e.offsetX;
-   gY =e.offsetY;
-   isDragging = true;
-  })
-  elCanvas.addEventListener('mousemove',e=>{
-    if (isDragging === true) {
-      drawLine(gCtx, gX, gY, e.offsetX, e.offsetY);
-      gX = e.offsetX;
-      gY = e.offsetY;
-    }
 
-  })
-  elCanvas.addEventListener('mouseup',()=>{
 
-    isDragging = false;
-  })
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
 }
 
 
@@ -235,22 +223,6 @@ function drawLine(context, x1, y1, x2, y2) {
 }
 //Load img to canvas
 function onImgInput(ev) {
-  loadImageFromInput(ev, renderCanvas)
+  loadImageFromInput(ev, renderMeme)
 }
-function loadImageFromInput(ev, onImageReady) {
-  document.querySelector('.share-container').innerHTML = ''
-  var reader = new FileReader();
-  
-  reader.onload = function (event) {
-      var img = new Image();
-      img.onload = onImageReady.bind(null, img)
-      img.src = event.target.result;
-  }
-  reader.readAsDataURL(ev.target.files[0]);
-}
-function renderCanvas(img) {
-  gCanvas.width = img.width;
-  gCanvas.height = img.height;
-  gCtx.drawImage(img, 0, 0);
-  // ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-}
+

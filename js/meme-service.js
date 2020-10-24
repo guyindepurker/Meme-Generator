@@ -1,6 +1,6 @@
 "use strict";
-
-var gKeywords = { happy: 12, funny: 12,love:12,dogs:12,nice:12,cats:12,baby:12,cool:12,angry:12,sad:12, };
+var gImgLoadId = 1245;//In Case User uplpoad img
+var gKeywords = { happy: 22, funny: 30,love:29,dogs:22,nice:18,cats:18,baby:12,cool:12,angry:12,sad:12, };
 var gImgs = [
   { id: 1, url: "imgs/meme-imgs/1.jpg", keywords: ['happy'] },
   { id: 2, url: "imgs/meme-imgs/2.jpg", keywords: ['love','dogs'] },
@@ -147,4 +147,43 @@ return {
     y:210
 }
 }
+function mouseMoveLine(ev) {
+  if (gMeme.selectedLineIdx === -1) return;
+  gMeme.lines[gMeme.selectedLineIdx].x = ev.offsetX;
+  gMeme.lines[gMeme.selectedLineIdx].y = ev.offsetY;
+}
 
+function toggleMouseState() {
+  gOnMouseDown = !gOnMouseDown;
+  setCanvasState();
+}
+
+function mouseSelectLine(ev) {
+  const { offsetX, offsetY } = ev;
+  gMeme.selectedLineIdx = gMeme.lines.findIndex((line) => {
+      var width = gCtx.measureText(line.txt).width
+      return offsetY > (line.y - line.size) && offsetY < line.y && offsetX > line.x && offsetX < line.x + width;
+  })
+}
+
+
+function loadImageFromInput(ev, onImageReady) {
+  var reader = new FileReader();
+  reader.onload = function (event) {
+    var img = new Image();
+    console.log(gImgLoadId,'before');
+    img.onload = onImageReady.bind(null, img)
+    img.src = event.target.result;
+    gImgs.push({id:gImgLoadId,url:img.src})
+    //The Next Line depend when the user want to Upload another image!!:
+    gMeme.selectedImgId = gImgs[gImgs.length-1].id;
+      gImgLoadId++
+  }
+  reader.readAsDataURL(ev.target.files[0]);
+}
+
+function wordIsMatch(word){
+  var keys =  Object.keys(gKeywords);
+  var res = keys.some(key=>key === word)
+  return res;
+}
