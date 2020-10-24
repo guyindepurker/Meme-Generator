@@ -125,8 +125,6 @@ function onSearch(elValue) {
 function onSwitchLine() {
   switchLine();
   renderMeme();
-  document.getElementById("font-family").value =
-    gMemeLines[gMeme.selectedLineIdx].font;
 }
 function onMoveLine(action, num = 5) {
   moveLine(action, num);
