@@ -18,6 +18,10 @@
     font-family: righteous;
     src: url(../design/fonts/righteous/Righteous-Regular.ttf);
 }
+form{
+    margin: 0;
+    padding: 0;
+}
 /* Basics */
 .canvas-content{
     max-height: 500px;
@@ -217,9 +221,9 @@ select{
     grid-column: span 1;
     grid-row: 5/6;
 }
-.share{
-    grid-column:  span 1;
-    grid-row: 5/6;    
+.share button{
+    grid-column:  span 5;
+    grid-row: 6/7;    
 }
 
 /* Gallery */
@@ -566,8 +570,8 @@ margin-right: 10px;
 }
 @media (max-width:510px){
     .box-control{
-        grid-template-columns: repeat(5,40px);
-    grid-template-rows: repeat(6,60px);
+        grid-template-columns: repeat(5,48px);
+    grid-auto-rows: auto;
     gap: 10px;
     }
     canvas{

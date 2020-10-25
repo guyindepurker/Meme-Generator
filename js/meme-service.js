@@ -1,6 +1,6 @@
 "use strict";
 
-const MEMESEAVED = 'MEMESDB';
+const MEMESEAVED = "MEMESDB";
 let gImgLoadId = 17845; //In Case User uplpoad more the one img in same time
 const gKeywords = {
   happy: 22,
@@ -52,23 +52,23 @@ const gMeme = {
   selectedLineIdx: 0,
   lines: [
     {
-      txt: "Enter Text",
+      txt: "Enter Text here",
       size: 35,
-      align: "center",
+      align: "left",
       color: "white",
       stroke: "black",
       font: "impact",
-      x: 258,
+      x: 150,
       y: 50,
     },
     {
       txt: "Enter a Text Here",
       size: 35,
-      align: "center",
+      align: "left",
       color: "white",
       stroke: "black",
       font: "impact",
-      x: 258,
+      x: 150,
       y: 490,
     },
   ],
@@ -77,8 +77,11 @@ const gMeme = {
 function getMeme() {
   return gMeme;
 }
-function getImagesToRender() {
-  return gImgs;
+function getImagesToShow(keyword) {
+  if(!keyword) return gImgs
+    return gImgs.filter(img => {
+      return img.keywords.some(word => word.includes(keyword))
+    })
 }
 function findImgById(id) {
   return gImgs.find((img) => img.id === id);
@@ -144,11 +147,12 @@ function removeLine() {
 }
 
 function getCurrTxt() {
-  if (gMeme.lines.length === 1) gMeme.selectedLineIdx = 0;
+  if (gMeme.lines.length === 1 || gMeme.selectedLineIdx === -1)
+    gMeme.selectedLineIdx = 0;
   return gMeme.lines[gMeme.selectedLineIdx].txt;
 }
 function getLineToFocus() {
-  if (gMeme.lines.length === 1) gMeme.selectedLineIdx = 0;
+  if (gMeme.lines.length === 1 || gMeme.selectedLineIdx === -1) gMeme.selectedLineIdx = 0;
   const x = gMeme.lines[gMeme.selectedLineIdx].x;
   const y = gMeme.lines[gMeme.selectedLineIdx].y;
   const txt = gMeme.lines[gMeme.selectedLineIdx].txt;
@@ -206,17 +210,35 @@ function setCanvasSizes(width, isLess) {
     gMeme.lines[1].y = width - 10;
   }
 }
-function saveMeme(url){
-  let imgs = loadFromStorage(MEMESEAVED)
-  if(!imgs ) imgs = [];
-  if(imgs.length <= 10){
-    imgs.push(url)
-  saveToStorage(MEMESEAVED,imgs);
-  } else {
-    return alert('Cant Save More!')
-  }
+function saveMeme(url) {
+  let imgs = loadFromStorage(MEMESEAVED);
+  if (!imgs) imgs = [];
+  if (imgs.length > 10) return;
+    imgs.push(url);
+    saveToStorage(MEMESEAVED, imgs);
 }
-function getMemeSaved(){
-const imgs = loadFromStorage(MEMESEAVED);
-return imgs;
+
+function getMemesSaved() {
+  const imgs = loadFromStorage(MEMESEAVED);
+  return imgs;
+}
+
+function selectLine(ev) {
+  const { offsetX, offsetY } = ev;
+  gMeme.selectedLineIdx = gMeme.lines.findIndex((line) => {
+    var width = gCtx.measureText(line.txt).width;
+    return (
+      offsetY > line.y - line.size &&
+      offsetY < line.y &&
+      offsetX > line.x &&
+      offsetX < line.x + width
+    );
+  });
+}
+
+function mouseMoveLine(ev) {
+  if (gMeme.selectedLineIdx === -1) return;
+  const { offsetX, offsetY } = ev;
+  gMeme.lines[gMeme.selectedLineIdx].x = offsetX;
+  gMeme.lines[gMeme.selectedLineIdx].y = offsetY;
 }
