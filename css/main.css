@@ -493,6 +493,9 @@ margin-right: 10px;
 .btn-orange:hover{
     color: black;
 }
+.close-nav{
+    display: none;
+}
 
 
 /* MEDIA SCREEN */
@@ -539,6 +542,9 @@ margin-right: 10px;
          display: block;}
     .main-header .main-nav.open{
        display: flex;
+    }
+    .main-nav.open .close-nav{
+        display: block;
     }
  }
 @media (max-width:1129px){
