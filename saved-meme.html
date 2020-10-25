@@ -8,6 +8,9 @@
     <title>Meme generator</title>
 </head>
 <body onload="initImgs()">
+    <div class="flex-site flex column  ">
+
+   
     <header class="main-header flex space-between padding-container">
         
         
@@ -21,16 +24,13 @@
             <li class="close-nav"><a href="#" onclick="toggleNav()" >X</a></li>
         </ul>
     </header>
-    <main class="saved-meme-container padding-container justify-center align-center">
-        <h1 class="title-saved-meme"> your saved meme </h1>
-        <div class="meme-gallery flex justify-center align-center wrap">
-            <div class="gallery-saved">
-                
-            </div>
-        </div>
+    <h1 class="title-saved-meme"> your saved meme </h1>
+    <main class="saved-meme-container meme-gallery padding-container justify-center wrap align-center">
+        <!-- <div class=" flex justify-center align-center wrap ">
+     
+        </div> -->
     </main>
     <footer class="main-footer padding-container flex column justify-center wrap">
-      
         <div class="logo"><img src="imgs/LOGO.png" herf="index.html" class="logo-png"  alt="" srcset="">
         </div>
         <small class="copyright">made by guy indepurker &copy; all rights reserved 2020</small>
@@ -40,6 +40,8 @@
             <li class="icon"><a href="https://github.com/guyindepurker"><i class="item-social fab fa-github"></i></a></li>
         </ul>
     </footer>
+
+</div>
     <script src="js/utils/storage-service.js"></script>
     <script src="js/utils/utils.js"></script>
     <script src="js/meme-service.js"></script>

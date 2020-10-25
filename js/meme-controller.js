@@ -182,11 +182,8 @@ function downloadImg(elLink) {
 }
 //*** Bonus Save Meme ****/
 function onSaveMeme() {
-  gSaveNum = loadFromStorage(MEMELIMIT);
-  if (gSaveNum === 10) return alert("cant save more");
-  saveToStorage(MEMEDB + `-${gSaveNum + 1}`, gCanvas.toDataURL());
-  gSaveNum++;
-  saveToStorage(MEMELIMIT, gSaveNum);
+  const urlImg = gCanvas.toDataURL()
+  saveMeme(urlImg)
 }
 
 //Load img to canvas

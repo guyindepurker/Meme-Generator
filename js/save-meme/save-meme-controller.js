@@ -1,16 +1,11 @@
 "use strict";
-const gMemeImgs = [];
+let gMemeImgs;
 function initImgs() {
   loadMemeImgs();
   renderImgsMeme();
 }
 function loadMemeImgs() {
-  const limit = loadFromStorage(MEMELIMIT);
-  for (let i = 1; i <= limit; i++) {
-    const currMeme = loadFromStorage(MEMEDB + `-${i}`);
-    gMemeImgs.push(currMeme);
-  }
-  return gMemeImgs;
+  gMemeImgs =getMemeSaved();
 }
 
 function renderImgsMeme() {

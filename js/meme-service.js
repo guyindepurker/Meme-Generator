@@ -1,4 +1,6 @@
 "use strict";
+
+const MEMESEAVED = 'MEMESDB';
 let gImgLoadId = 17845; //In Case User uplpoad more the one img in same time
 const gKeywords = {
   happy: 22,
@@ -203,4 +205,18 @@ function setCanvasSizes(width, isLess) {
     });
     gMeme.lines[1].y = width - 10;
   }
+}
+function saveMeme(url){
+  let imgs = loadFromStorage(MEMESEAVED)
+  if(!imgs ) imgs = [];
+  if(imgs.length <= 10){
+    imgs.push(url)
+  saveToStorage(MEMESEAVED,imgs);
+  } else {
+    return alert('Cant Save More!')
+  }
+}
+function getMemeSaved(){
+const imgs = loadFromStorage(MEMESEAVED);
+return imgs;
 }
