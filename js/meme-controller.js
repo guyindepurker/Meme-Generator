@@ -29,6 +29,7 @@ function renderMeme() {
   img.onload = () => {
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
     renderTexts(gMemeLines);
+    renderInput()
     renderFocus();
   };
 }
@@ -164,16 +165,8 @@ function drawText(text, color, stroke, size, align, x, y, font = "IMPACT") {
 }
 
 function downloadImg(elLink) {
-  const imgToRender = findImgById(gMeme.selectedImgId);
-  const img = new Image();
-  img.src = imgToRender.url;
-  img.onload = () => {
-    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
-    renderTexts(gMemeLines);
-    var imgContent = gCanvas.toDataURL("image/jpeg");
+  var imgContent = gCanvas.toDataURL("image/jpeg");
   elLink.href = imgContent;
-  };
- 
 }
 //*** Bonus Save Meme ****/
 function onSaveMeme() {

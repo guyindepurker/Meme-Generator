@@ -45,6 +45,10 @@ const gImgs = [
   { id: 16, url: "imgs/meme-imgs/16.jpg", keywords: ["funny"] },
   { id: 17, url: "imgs/meme-imgs/17.jpg", keywords: ["angry"] },
   { id: 18, url: "imgs/meme-imgs/18.jpg", keywords: ["cool", "angry"] },
+  { id: 19, url: "imgs/meme-imgs/19.jpeg", keywords: ["cool", "angry"] },
+  { id: 20, url: "imgs/meme-imgs/20.jpg", keywords: ["cool", "angry"] },
+  { id: 21, url: "imgs/meme-imgs/21.jpeg", keywords: ["cool", "angry"] },
+  { id: 22, url: "imgs/meme-imgs/22.jpg", keywords: ["cool", "angry"] },
 ];
 
 const gMeme = {
@@ -234,10 +238,11 @@ function selectLine(ev) {
       offsetX < line.x + width
     );
   });
+  if(gMeme.selectedLineIdx === -1) isDragging=false
 }
 
 function mouseMoveLine(ev) {
-  if (gMeme.selectedLineIdx === -1) return;
+  // if (gMeme.selectedLineIdx === -1) return;
   const { offsetX, offsetY } = ev;
   gMeme.lines[gMeme.selectedLineIdx].x = offsetX;
   gMeme.lines[gMeme.selectedLineIdx].y = offsetY;
